@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Services.Core;
+//using Unity.Services.Core;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -19,18 +19,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
 
     public float jumpHeight = 3;
-
-    async void Awake()
-	{
-		try
-		{
-			await UnityServices.InitializeAsync();
-		}
-		catch 
-		{
-
-		}
-	}
 
     // Update is called once per frame
     void Update()
