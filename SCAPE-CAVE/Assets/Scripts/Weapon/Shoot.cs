@@ -19,9 +19,19 @@ public class Shoot : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            GameObject newBullet;
+            if(Time.time>shotRateTime){
 
-            newBullet=Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+                GameObject newBullet;
+
+                newBullet=Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+
+                newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward*shotForce);
+                
+                shotRateTime=Time.time+shotRate;
+
+                Destroy(newBullet, 3);
+            }
+            
         }
     }
 }
