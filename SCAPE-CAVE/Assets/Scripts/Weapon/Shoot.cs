@@ -7,7 +7,7 @@ public class Shoot : MonoBehaviour
     public Transform spawnPoint;
     public GameObject bullet;
 
-    public float shotForce=1500f;
+    public float shotForce=700f;
     public float shotRate =0.5f;
     
     private float shotRateTime =0; 
