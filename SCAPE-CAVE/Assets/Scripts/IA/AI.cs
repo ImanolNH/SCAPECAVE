@@ -12,11 +12,12 @@ public class AI : MonoBehaviour
 
     void Start()
     {
-        navMeshAgent.destination =destination1.transform.position;
+        
     }
 
     void Update()
     {
+        navMeshAgent.destination =destination1.transform.position;
         float distance = Vector3.Distance(transform.position, destination1.transform.position);
         
         if(distance<2){
