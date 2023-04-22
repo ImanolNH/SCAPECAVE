@@ -51,8 +51,7 @@ public class AI : MonoBehaviour
         if(Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath){
 
             if(destinations[i]!= destinations[destinations.Length -1])
-            {           
-                
+            {     
                 i++;
             }
             else
