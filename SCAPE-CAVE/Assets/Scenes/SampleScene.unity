@@ -14913,7 +14913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1490468004}
   m_Layer: 0
-  m_Name: Antorcha (1)
+  m_Name: Antorcha Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14926,15 +14926,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490468003}
-  m_LocalRotation: {x: -0.23516616, y: -0.8545441, z: 0.28061205, w: -0.36838582}
-  m_LocalPosition: {x: 2.01, y: 0.77, z: 1.21}
-  m_LocalScale: {x: 7.050858, y: 2.3502865, z: 2.350286}
+  m_LocalRotation: {x: -0.27919883, y: -0.78001344, z: 0.23684245, w: -0.5074768}
+  m_LocalPosition: {x: 1.64, y: -0.1960001, z: 2.6}
+  m_LocalScale: {x: 7.0508556, y: 2.3502862, z: 2.3502855}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1873043559}
-  m_Father: {fileID: 3035005959496579113}
+  m_Father: {fileID: 3035005960760221746}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 40.757, y: -221.067, z: 14.931}
+  m_LocalEulerAnglesHint: {x: 40.757, y: -240.522, z: 14.931}
 --- !u!1 &1534172906
 GameObject:
   m_ObjectHideFlags: 0
@@ -16391,7 +16391,6 @@ Transform:
   - {fileID: 3035005960439021239}
   - {fileID: 3035005960760221746}
   - {fileID: 3035005960955663755}
-  - {fileID: 1490468004}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 89.397, z: 0}
@@ -16489,13 +16488,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 3035005959496579117}
-  speed: 12
+  speed: 8
   groundCheck: {fileID: 3035005960955663755}
   sphereRadius: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 128
-  jumpHeight: 3
+  jumpHeight: 1
 --- !u!114 &3035005959496579127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16618,6 +16617,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7778767188853377638}
+  - {fileID: 1490468004}
   m_Father: {fileID: 3035005959496579113}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16633,7 +16633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669b69b721628c949818d2f0feace5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 80
+  mouseSensitivity: 200
   playerBody: {fileID: 3035005959496579113}
 --- !u!81 &3035005960760221748
 AudioListener:
@@ -48426,7 +48426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6022160966907099904}
   m_LocalRotation: {x: -0.5009656, y: 0.49903253, z: 0.49903262, w: 0.50096565}
-  m_LocalPosition: {x: -29.587, y: 0.67, z: -0.971}
+  m_LocalPosition: {x: -29.571, y: 0.67, z: -0.971}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -130802,15 +130802,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6969438242640859356}
-  m_LocalRotation: {x: -0.7733658, y: -0.1106814, z: -0.14254794, w: 0.60772943}
-  m_LocalPosition: {x: 0.21, y: -0.16600007, z: 0.883}
+  m_LocalRotation: {x: -0.7771573, y: -0.09309583, z: -0.12016873, w: 0.61067104}
+  m_LocalPosition: {x: 0.29, y: -0.16600007, z: 0.88}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7816281885620730373}
   m_Father: {fileID: 3035005960760221746}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -103.7, y: -21.28, z: 0.5}
+  m_LocalEulerAnglesHint: {x: -103.7, y: -17.971985, z: 0.5}
 --- !u!1 &7816281885620730370
 GameObject:
   m_ObjectHideFlags: 0
