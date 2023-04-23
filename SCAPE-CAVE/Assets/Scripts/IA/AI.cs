@@ -21,10 +21,13 @@ public class AI : MonoBehaviour
     private float distanceToPlayer;
 
     public float distanceToFollowPlayer =10;
+    //public float angulos = new Vector3(0, 0, 0);
+
 
     void Start()
     {
         navMeshAgent.destination =destinations[i].transform.position;
+        //transform.localEulerAngles = navMeshAgent.destination;
         player = FindObjectOfType<PlayerMovement>().gameObject;
         
     }
@@ -48,7 +51,9 @@ public class AI : MonoBehaviour
 
         navMeshAgent.destination=destinations[i].position;
 
-        if(Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath){
+        //transform.localEulerAngles = navMeshAgent.destination;
+        if (Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath){
+            Debug.Log("Localizacion: "+i);
 
             if(destinations[i]!= destinations[destinations.Length -1])
             {     
