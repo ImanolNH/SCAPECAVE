@@ -21,13 +21,24 @@ public class AI : MonoBehaviour
     private float distanceToPlayer;
 
     public float distanceToFollowPlayer =10;
-    //public float angulos = new Vector3(0, 0, 0);
-
+    private float direction ;
 
     void Start()
     {
-        navMeshAgent.destination =destinations[i].transform.position;
-        //transform.localEulerAngles = navMeshAgent.destination;
+        Vector3 moveDirection = (destinations[i].position - transform.position).normalized;
+
+        // Invierte la dirección de movimiento para hacer que el personaje mire en la dirección opuesta
+        Vector3 oppositeDirection = -moveDirection;
+
+        // Orienta el personaje hacia la dirección opuesta
+        transform.LookAt(transform.position + oppositeDirection);
+
+        // Establece la dirección de movimiento del personaje
+
+        navMeshAgent.destination = destinations[i].transform.position;
+        //navMeshAgent.destination =destinations[i].transform.position;
+
+
         player = FindObjectOfType<PlayerMovement>().gameObject;
         
     }
@@ -49,9 +60,17 @@ public class AI : MonoBehaviour
     public void EnemyPath()
     {
 
-        navMeshAgent.destination=destinations[i].position;
+        Vector3 moveDirection = (destinations[i].position - transform.position).normalized;
 
-        //transform.localEulerAngles = navMeshAgent.destination;
+        // Invierte la dirección de movimiento para hacer que el personaje mire en la dirección opuesta
+        Vector3 oppositeDirection = -moveDirection;
+
+        // Orienta el personaje hacia la dirección opuesta
+        transform.LookAt(transform.position + oppositeDirection);
+
+        // Establece la dirección de movimiento del personaje
+        navMeshAgent.destination = destinations[i].transform.position;
+
         if (Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath){
             Debug.Log("Localizacion: "+i);
 
@@ -67,6 +86,18 @@ public class AI : MonoBehaviour
     }
 
     public void FollowPlayer(){
+
+        Vector3 moveDirection = (player.transform.position - transform.position).normalized;
+
+        // Invierte la dirección de movimiento para hacer que el personaje mire en la dirección opuesta
+        Vector3 oppositeDirection = -moveDirection;
+
+        // Orienta el personaje hacia la dirección opuesta
+        transform.LookAt(transform.position + oppositeDirection);
+
+        // Establece la dirección de movimiento del personaje
+
         navMeshAgent.destination=player.transform.position;
+
     }
 }
