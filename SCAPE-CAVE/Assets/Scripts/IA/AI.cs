@@ -98,6 +98,8 @@ public class AI : MonoBehaviour
         // Establece la dirección de movimiento del personaje
 
         navMeshAgent.destination=player.transform.position;
+        ///OJOOOOOOOOOOO
+        //navMeshAgent.speed = 3f
 
     }
 }
