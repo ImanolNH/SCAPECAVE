@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class Gun : MonoBehaviour
     public float shotForce=700f;
     public float shotRate =0.5f;
     
-    private float shotRateTime =0; 
+    private float shotRateTime =0;
+
     // Start is called before the first frame update
 
+    //public TMP_Text municionTexto;
+    //public estadisticas municion;
 
     // Update is called once per frame
     void Update()
@@ -21,6 +25,7 @@ public class Gun : MonoBehaviour
         {
             if(Time.time>shotRateTime && GameManager.Instance.gunAmmo>0){
                 GameManager.Instance.gunAmmo--;
+
 
                 GameObject newBullet;
 
@@ -35,4 +40,10 @@ public class Gun : MonoBehaviour
             
         }
     }
+
+    /*
+    public void Coleccionar()
+    {
+        municionTexto.text = GameManager.Instance.gunAmmo.ToString();
+    }*/
 }
