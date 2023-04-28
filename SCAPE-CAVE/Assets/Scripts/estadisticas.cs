@@ -8,10 +8,10 @@ using UnityEngine.SceneManagement;
 public class estadisticas : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text municion;
-    public void Setup(int score)
+    public TMP_Text municionTexto;
+    public void Setup(int municion)
     {
         gameObject.SetActive(true);
-        municion.text = municion.ToString();
+        municionTexto.text = municion.ToString();
     }
 }

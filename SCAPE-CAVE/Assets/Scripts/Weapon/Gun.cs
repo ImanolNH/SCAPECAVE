@@ -15,9 +15,8 @@ public class Gun : MonoBehaviour
 
     // Start is called before the first frame update
 
-    //public TMP_Text municionTexto;
+    public TMP_Text municion;
     //public estadisticas municion;
-
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +25,8 @@ public class Gun : MonoBehaviour
             if(Time.time>shotRateTime && GameManager.Instance.gunAmmo>0){
                 GameManager.Instance.gunAmmo--;
 
+                string ammo = GameManager.Instance.gunAmmo.ToString();
+                municion.text = ammo;
 
                 GameObject newBullet;
 
@@ -40,10 +41,4 @@ public class Gun : MonoBehaviour
             
         }
     }
-
-    /*
-    public void Coleccionar()
-    {
-        municionTexto.text = GameManager.Instance.gunAmmo.ToString();
-    }*/
 }
