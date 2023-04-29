@@ -5246,8 +5246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.019}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 44.2387, y: 78.32514}
-  m_SizeDelta: {x: 219.8518, y: 156.6368}
+  m_AnchoredPosition: {x: 57.576, y: 64.627}
+  m_SizeDelta: {x: 170.2082, y: 129.2532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606804424
 MonoBehaviour:
@@ -5262,7 +5262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9561464, g: 0.6117647, b: 0.9622642, a: 0.7882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11873,10 +11873,10 @@ RectTransform:
   m_Father: {fileID: 967956945}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -8.6, y: 51.4}
-  m_SizeDelta: {x: 232.0028, y: 98.7443}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -179, y: 91}
+  m_SizeDelta: {x: 232.0028, y: 98.74429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795573306
 MonoBehaviour:
@@ -11904,7 +11904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  m_Color: {r: 0.33962262, g: 0.09131362, b: 0.09131362, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -26257,6 +26257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunAmmo: 10
+  vidas: 3
 --- !u!1 &1316513049
 GameObject:
   m_ObjectHideFlags: 0
@@ -33979,7 +33980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.3, y: 46.3}
+  m_AnchoredPosition: {x: 35, y: 20.242}
   m_SizeDelta: {x: 64.6849, y: 61.1022}
   m_Pivot: {x: 0.19735706, y: 0.5816224}
 --- !u!114 &2112479163
@@ -34011,8 +34012,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2769285617
-  m_fontColor: {r: 0.9433962, g: 0.94337666, b: 0.057849795, a: 0.64705884}
+    rgba: 3237983731
+  m_fontColor: {r: 0.9528302, g: 0.70980394, b: 1, a: 0.7529412}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -34029,8 +34030,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34929,7 +34930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 7816281885620730373}
   bullet: {fileID: 269718811063390978, guid: 0c5c2a79175fedd49af451626f125d23, type: 3}
-  shotForce: 1000
+  shotForce: 1200
   shotRate: 0.5
   municion: {fileID: 795989752}
 --- !u!1 &656420207721849102
@@ -37097,6 +37098,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 128
+  vidasTexto: {fileID: 2112479163}
   jumpHeight: 1
 --- !u!114 &3035005959496579127
 MonoBehaviour:

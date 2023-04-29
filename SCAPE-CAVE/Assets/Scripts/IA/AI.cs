@@ -15,16 +15,21 @@ public class AI : MonoBehaviour
 
     [Header("---------FollowPlayer----")]
     public bool followPlayer;
-
     private GameObject player;
-
     private float distanceToPlayer;
-
     public float distanceToFollowPlayer =10;
     private float direction ;
+    [Header("---------Atacar jugador----")]
+
+    public Animator ani;
+    public Quaternion angulo;
+    public float grado;
+
 
     void Start()
     {
+        ani = GetComponent<Animator>();
+
         Vector3 moveDirection = (destinations[i].position - transform.position).normalized;
 
         // Invierte la dirección de movimiento para hacer que el personaje mire en la dirección opuesta
@@ -36,6 +41,7 @@ public class AI : MonoBehaviour
         // Establece la dirección de movimiento del personaje
 
         navMeshAgent.destination = destinations[i].transform.position;
+        navMeshAgent.speed = 5f;
         //navMeshAgent.destination =destinations[i].transform.position;
 
 
@@ -70,6 +76,7 @@ public class AI : MonoBehaviour
 
         // Establece la dirección de movimiento del personaje
         navMeshAgent.destination = destinations[i].transform.position;
+        navMeshAgent.speed = 5f;
 
         if (Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath){
             Debug.Log("Localizacion: "+i);
@@ -99,7 +106,7 @@ public class AI : MonoBehaviour
 
         navMeshAgent.destination=player.transform.position;
         ///OJOOOOOOOOOOO
-        //navMeshAgent.speed = 3f
+        navMeshAgent.speed = 7f;
 
     }
 }

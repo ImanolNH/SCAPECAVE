@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-//using Unity.Services.Core;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,12 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
 
+    public TMP_Text vidasTexto;
+
     public float jumpHeight = 1;
 
 
     // Update is called once per frame
     void Update()
     {
+        string vidas = GameManager.Instance.vidas.ToString();
+        vidasTexto.text = vidas;
         isGrounded = Physics.CheckSphere(groundCheck.position, sphereRadius, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -49,4 +53,5 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
 }
