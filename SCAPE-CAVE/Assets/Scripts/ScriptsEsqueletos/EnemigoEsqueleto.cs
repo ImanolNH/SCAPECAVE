@@ -23,12 +23,14 @@ public class EnemigoEsqueleto : MonoBehaviour
     void Update()
     {
         Comportamiento_Enemigo();
+        print("Hola");
     }
 
     public void Comportamiento_Enemigo()
     {
         if(Vector3.Distance(transform.position, target.transform.position) > 5)
         {
+            
             ani.SetBool("run", false); 
             cronometro += 1 * Time.deltaTime;
             if (cronometro >= 4)
@@ -40,6 +42,7 @@ public class EnemigoEsqueleto : MonoBehaviour
             {
                 case 0:
                     ani.SetBool("walk", false);
+                    print("Idle");
                     break;
                 case 1:
                     grado = Random.Range(0, 360);
@@ -50,6 +53,7 @@ public class EnemigoEsqueleto : MonoBehaviour
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
                     transform.Translate(Vector3.forward * 1 * Time.deltaTime);
                     ani.SetBool("walk", true);
+                    print("Comportamiento normal");
                     break;
             }
         }

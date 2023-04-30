@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerInteractions : MonoBehaviour
 {
     public TMP_Text municion;
+    int numero = 0;
     private void OnTriggerEnter(Collider other) {
         
         if(other.gameObject.CompareTag("GunAmmo"))
@@ -16,7 +17,8 @@ public class PlayerInteractions : MonoBehaviour
             string ammo = GameManager.Instance.gunAmmo.ToString();
             municion.text = ammo;
         }else if(other.CompareTag("arma")){
-            Debug.Log("Daño");
+            Debug.Log("Daño"+numero.ToString());
+            numero++;
         }
     }
 
