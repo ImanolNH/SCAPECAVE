@@ -15,6 +15,8 @@ public class PlayerInteractions : MonoBehaviour
 
             string ammo = GameManager.Instance.gunAmmo.ToString();
             municion.text = ammo;
+        }else if(other.CompareTag("arma")){
+            Debug.Log("Daño");
         }
     }
 
