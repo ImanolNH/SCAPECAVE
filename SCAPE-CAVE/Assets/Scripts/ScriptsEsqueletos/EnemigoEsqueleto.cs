@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemigoEsqueleto : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class EnemigoEsqueleto : MonoBehaviour
     public Animator ani;
     public Quaternion angulo;
     public float grado;
+
+    public Slider barraVidaEnemigo;
+    public int vidas = 3;
 
     public GameObject target;
     public bool atacando;
@@ -88,5 +92,15 @@ public class EnemigoEsqueleto : MonoBehaviour
     {
         ani.SetBool("attack", false);
         atacando = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Bala"))
+        {
+            vidas--;
+            barraVidaEnemigo.value = vidas;
+        }
     }
 }
