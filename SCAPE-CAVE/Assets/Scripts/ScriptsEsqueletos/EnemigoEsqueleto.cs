@@ -16,6 +16,7 @@ public class EnemigoEsqueleto : MonoBehaviour
 
     public GameObject target;
     public bool atacando;
+    public bool muerto =false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,57 +33,59 @@ public class EnemigoEsqueleto : MonoBehaviour
 
     public void Comportamiento_Enemigo()
     {
-        if(Vector3.Distance(transform.position, target.transform.position) > 5)
-        {
+        if (muerto == false) { 
+            if(Vector3.Distance(transform.position, target.transform.position) > 10)
+            {
             
-            ani.SetBool("run", false); 
-            cronometro += 1 * Time.deltaTime;
-            if (cronometro >= 4)
-            {
-                rutina = Random.Range(0, 2);
-                cronometro = 0;
-            }
-            switch (rutina)
-            {
-                case 0:
-                    ani.SetBool("walk", false);
-                    print("Idle");
-                    break;
-                case 1:
-                    grado = Random.Range(0, 360);
-                    angulo = Quaternion.Euler(0, grado, 0);
-                    rutina++;
-                    break;
-                case 2:
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
-                    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
-                    ani.SetBool("walk", true);
-                    print("Comportamiento normal");
-                    break;
-            }
-        }
-        else
-        {
-            if(Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando)
-            {
-                var lookPos = target.transform.position - transform.position;
-                lookPos.y = 0;
-                var rotation = Quaternion.LookRotation(lookPos);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 2);
-                ani.SetBool("walk", false);
-                ani.SetBool("run", true);
-                transform.Translate(Vector3.forward * 3 * Time.deltaTime);
-
-                ani.SetBool("attack", false);
+                ani.SetBool("run", false); 
+                cronometro += 1 * Time.deltaTime;
+                if (cronometro >= 4)
+                {
+                    rutina = Random.Range(0, 2);
+                    cronometro = 0;
+                }
+                switch (rutina)
+                {
+                    case 0:
+                        ani.SetBool("walk", false);
+                        print("Idle");
+                        break;
+                    case 1:
+                        grado = Random.Range(0, 360);
+                        angulo = Quaternion.Euler(0, grado, 0);
+                        rutina++;
+                        break;
+                    case 2:
+                        transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
+                        transform.Translate(Vector3.forward * 1 * Time.deltaTime);
+                        ani.SetBool("walk", true);
+                        print("Comportamiento normal");
+                        break;
+                }
             }
             else
             {
-                ani.SetBool("walk", false);
-                ani.SetBool("run", false);
-            
-                ani.SetBool("attack", true);
-                atacando = true;
+                if(Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando)
+                {
+                    var lookPos = target.transform.position - transform.position;
+                    lookPos.y = 0;
+                    var rotation = Quaternion.LookRotation(lookPos);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 2);
+                    ani.SetBool("walk", false);
+                    ani.SetBool("run", true);
+                    transform.Translate(Vector3.forward * 3 * Time.deltaTime);
 
+                    ani.SetBool("attack", false);
+                }
+                else
+                {
+                    ani.SetBool("walk", false);
+                    ani.SetBool("run", false);
+            
+                    ani.SetBool("attack", true);
+                    atacando = true;
+
+                }
             }
         }
 
@@ -101,6 +104,16 @@ public class EnemigoEsqueleto : MonoBehaviour
         {
             vidas--;
             barraVidaEnemigo.value = vidas;
+            if(vidas == 0)
+            {
+                ani.SetBool("walk", false);
+                ani.SetBool("run", false);
+
+                ani.SetBool("attack", false);
+                ani.SetTrigger("Death");
+                muerto = true;
+                Destroy(gameObject, 2);
+            }
         }
     }
 }
