@@ -17,6 +17,10 @@ public class EnemigoEsqueleto : MonoBehaviour
     public GameObject target;
     public bool atacando;
     public bool muerto =false;
+
+    //variables del spawn de munición de enemigos
+    public GameObject specialAmmo;
+    public Transform spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -112,6 +116,10 @@ public class EnemigoEsqueleto : MonoBehaviour
                 ani.SetBool("attack", false);
                 ani.SetTrigger("Death");
                 muerto = true;
+                //creación de la munición especial
+                GameObject newBullet;
+
+                newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
                 Destroy(gameObject, 2);
             }
         }
