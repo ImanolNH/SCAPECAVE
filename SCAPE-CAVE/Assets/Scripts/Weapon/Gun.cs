@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
 
     public TMP_Text municion;
+    public TMP_Text cargador;
     //public estadisticas municion;
     // Update is called once per frame
     void Update()

@@ -5,9 +5,16 @@ using TMPro;
 public class RecogerMunicion : MonoBehaviour
 {
     public TMP_Text municion;
+    public TMP_Text cargadorT;
     public TMP_Text instrucciones;
     string instrucc;
     public bool dentro = false;
+
+
+    private int municionTotal;
+
+    private string textoCargador;
+    private int cargador;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +26,40 @@ public class RecogerMunicion : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            dentro = true;
-            instrucc = "Pulsa 'E' para recoger la munición";
-            instrucciones.text = instrucc;
-            if(Input.GetKey(KeyCode.E)){
-                GameManager.Instance.gunAmmo += gameObject.GetComponent<AmmoBox>().ammo;
-                Destroy(gameObject);
-                instrucciones.text = "";
-                string ammo = GameManager.Instance.gunAmmo.ToString();
-                municion.text = ammo;
+            if(GameManager.Instance.gunAmmo==10 && GameManager.Instance.ammoCargador==10) {
+                instrucc = "La munición está al máximo";
+                instrucciones.text = instrucc;
+            }
+            else
+            {
+                instrucc = "Pulsa 'E' para recoger la munición";
+                instrucciones.text = instrucc;
+                if (Input.GetKey(KeyCode.E))
+                {
+                    GameManager.Instance.gunAmmo += gameObject.GetComponent<AmmoBox>().ammo;
+
+                    municionTotal = GameManager.Instance.gunAmmo;
+                    if (municionTotal > 10)
+                    {
+                        GameManager.Instance.gunAmmo = 10;
+                        cargador = municionTotal - 10;
+                        if (cargador > 10)
+                        {
+                            cargador = 10;
+
+                        }
+                        GameManager.Instance.ammoCargador = cargador;
+
+
+                    }
+                    instrucciones.text = "";
+                    string ammo = GameManager.Instance.gunAmmo.ToString();
+                    municion.text = ammo;
+                    textoCargador = cargador.ToString();
+                    cargadorT.text = textoCargador;
+
+                    Destroy(gameObject);
+                }
             }
         }
     }

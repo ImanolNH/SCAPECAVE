@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance{get; private set; }
 
-    public int gunAmmo=3;
+    public int gunAmmo=5;
+    public int maxAmmo = 10;
+    public int ammoCargador=0;
     public int vidas = 3;
 
     /*public TMP_Text municionTexto;
