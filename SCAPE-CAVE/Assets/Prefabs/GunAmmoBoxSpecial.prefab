@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1042179491625849131}
   - component: {fileID: 377528403986615184}
   - component: {fileID: 1746191228785252015}
-  - component: {fileID: 6664273449179469795}
+  - component: {fileID: 16907012535848410}
   m_Layer: 0
   m_Name: GunAmmoBoxSpecial
   m_TagString: GunAmmo
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: 1
---- !u!114 &6664273449179469795
+--- !u!114 &16907012535848410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,11 +72,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 377528403986615185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b930d8e43e13be49b06536fa4ad3d51, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f5c29fdfbd041e4e9c0fb7aca3eceab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   municion: {fileID: 0}
   instrucciones: {fileID: 0}
+  municionObjeto: {fileID: 0}
   dentro: 0
 --- !u!1 &752361371588664532
 GameObject:

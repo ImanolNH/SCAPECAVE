@@ -8,12 +8,11 @@ public class RecogerMunicion : MonoBehaviour
     public TMP_Text cargadorT;
     public TMP_Text instrucciones;
     string instrucc;
-    public bool dentro = false;
-
 
     private int municionTotal;
 
     private string textoCargador;
+    private int diferenciaDeMunicion;
     private int cargador;
     // Start is called before the first frame update
     void Start()
@@ -42,7 +41,9 @@ public class RecogerMunicion : MonoBehaviour
                     if (municionTotal > 10)
                     {
                         GameManager.Instance.gunAmmo = 10;
-                        cargador = municionTotal - 10;
+                        diferenciaDeMunicion = municionTotal - 10;
+
+                        cargador = municionTotal+GameManager.Instance.ammoCargador;
                         if (cargador > 10)
                         {
                             cargador = 10;

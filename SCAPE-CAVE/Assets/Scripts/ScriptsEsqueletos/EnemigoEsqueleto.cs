@@ -32,7 +32,7 @@ public class EnemigoEsqueleto : MonoBehaviour
     void Update()
     {
         Comportamiento_Enemigo();
-        print("Hola");
+        
     }
 
     public void Comportamiento_Enemigo()
@@ -63,7 +63,7 @@ public class EnemigoEsqueleto : MonoBehaviour
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
                         transform.Translate(Vector3.forward * 1 * Time.deltaTime);
                         ani.SetBool("walk", true);
-                        print("Comportamiento normal");
+                        //print("Comportamiento normal");
                         break;
                 }
             }
