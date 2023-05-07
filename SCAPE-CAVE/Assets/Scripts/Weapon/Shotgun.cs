@@ -24,11 +24,12 @@ public class Shotgun : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             if(Time.time>shotRateTime && GameManager.Instance.gunAmmo>0){
-                GameManager.Instance.gunAmmo--;
+                GameManager.Instance.shotgunAmmo--;
 
-                string ammo = GameManager.Instance.gunAmmo.ToString();
-                municion.text = ammo;
+                string ammoEscopeta = GameManager.Instance.shotgunAmmo.ToString();
+                municion.text = ammoEscopeta;
 
+                Debug.Log("Municion disparo:  " + ammoEscopeta);
                 GameObject newBullet;
 
                 newBullet=Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
@@ -37,7 +38,7 @@ public class Shotgun : MonoBehaviour
                 
                 shotRateTime=Time.time+shotRate;
 
-                Destroy(newBullet, 0.1f);
+                Destroy(newBullet, 0.25f);
             }
             
         }

@@ -23,9 +23,9 @@ public class RecogerMunicionEspecial : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && GameManager.Instance.shotgun==true)
         {
-            if (GameManager.Instance.gunAmmo == 10 && GameManager.Instance.ammoCargador == 10)
+            if (GameManager.Instance.shotgunAmmo == 5 && GameManager.Instance.shotgunAmmoCargador == 5)
             {
                 instrucc = "La munición está al máximo";
                 instrucciones.text = instrucc;
@@ -36,26 +36,27 @@ public class RecogerMunicionEspecial : MonoBehaviour
                 instrucciones.text = instrucc;
                 if (Input.GetKey(KeyCode.E))
                 {
-                    GameManager.Instance.gunAmmo += gameObject.GetComponent<AmmoBox>().ammo;
+                    GameManager.Instance.shotgunAmmo += gameObject.GetComponent<AmmoBox>().ammo;
 
-                    municionTotal = GameManager.Instance.gunAmmo;
-                    if (municionTotal > 10)
+                    municionTotal = GameManager.Instance.shotgunAmmo;
+                    Debug.Log("Municion:  " + municionTotal.ToString());
+                    if (municionTotal > 5)
                     {
-                        GameManager.Instance.gunAmmo = 10;
-                        diferenciaDeMunicion = municionTotal - 10;
+                        GameManager.Instance.shotgunAmmo = 5;
+                        diferenciaDeMunicion = municionTotal - 5;
 
-                        cargador = municionTotal + GameManager.Instance.ammoCargador;
-                        if (cargador > 10)
+                        cargador = municionTotal + GameManager.Instance.shotgunAmmoCargador;
+                        if (cargador > 5)
                         {
-                            cargador = 10;
+                            cargador = 5;
 
                         }
-                        GameManager.Instance.ammoCargador = cargador;
+                        GameManager.Instance.shotgunAmmoCargador = cargador;
 
 
                     }
                     instrucciones.text = "";
-                    string ammo = GameManager.Instance.gunAmmo.ToString();
+                    string ammo = GameManager.Instance.shotgunAmmo.ToString();
                     municion.text = ammo;
                     textoCargador = cargador.ToString();
                     cargadorT.text = textoCargador;
@@ -63,6 +64,11 @@ public class RecogerMunicionEspecial : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+        }else if(other.gameObject.CompareTag("Player") && GameManager.Instance.shotgun == true){
+
+            instrucc = "No puedes acceder a esta munición con esta arma";
+            instrucciones.text = instrucc;
+
         }
     }
     private void OnTriggerExit()

@@ -23,7 +23,7 @@ public class RecogerMunicion : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && GameManager.Instance.shotgun == false)
         {
             if(GameManager.Instance.gunAmmo==10 && GameManager.Instance.ammoCargador==10) {
                 instrucc = "La munición está al máximo";
@@ -62,6 +62,11 @@ public class RecogerMunicion : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+        }else if (other.gameObject.CompareTag("Player") && GameManager.Instance.shotgun == true)
+        {
+            instrucc = "No puedes acceder a esta munición con esta arma";
+            instrucciones.text = instrucc;
+
         }
     }
     private void OnTriggerExit()
