@@ -23,7 +23,7 @@ public class Shotgun : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            if(Time.time>shotRateTime && GameManager.Instance.gunAmmo>0){
+            if(Time.time>shotRateTime && GameManager.Instance.shotgunAmmo > 0){
                 GameManager.Instance.shotgunAmmo--;
 
                 string ammoEscopeta = GameManager.Instance.shotgunAmmo.ToString();

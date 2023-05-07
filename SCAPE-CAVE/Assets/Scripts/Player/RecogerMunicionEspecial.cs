@@ -64,7 +64,7 @@ public class RecogerMunicionEspecial : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-        }else if(other.gameObject.CompareTag("Player") && GameManager.Instance.shotgun == true){
+        }else if(other.gameObject.CompareTag("Player") && GameManager.Instance.shotgun == false){
 
             instrucc = "No puedes acceder a esta munición con esta arma";
             instrucciones.text = instrucc;

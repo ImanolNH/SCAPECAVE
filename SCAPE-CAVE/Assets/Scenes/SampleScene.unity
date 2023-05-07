@@ -26655,8 +26655,7 @@ MonoBehaviour:
   gunAmmo: 5
   maxAmmo: 15
   ammoCargador: 0
-  shotgunAmmo: 5
-  shotgunMaxAmmo: 5
+  shotgunAmmo: 3
   shotgunAmmoCargador: 0
   shotgun: 1
 --- !u!1 &1293522067
@@ -33388,7 +33387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}

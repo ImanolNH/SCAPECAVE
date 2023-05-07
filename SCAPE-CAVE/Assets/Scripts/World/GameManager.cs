@@ -10,12 +10,10 @@ public class GameManager : MonoBehaviour
     public int vidas = 3;
     //Munción Pistola
     public int gunAmmo=5;
-    public int maxAmmo = 10;
     public int ammoCargador=0;
 
     //Munción Escopeta
     public int shotgunAmmo = 2;
-    public int shotgunMaxAmmo = 5;
     public int shotgunAmmoCargador = 0;
 
     public bool shotgun = true;
