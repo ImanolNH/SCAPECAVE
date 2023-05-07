@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 using TMPro;
 
@@ -13,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float sphereRadius = 0.3f;
     public LayerMask groundMask;
+    public AudioSource pasos;
+    public AudioClip jumpSound;
 
     bool isGrounded;
+    bool isJumping;
 
     Vector3 velocity;
 
@@ -42,7 +46,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            isJumping = true;
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            pasos.PlayOneShot(jumpSound);
         }
 
         characterController.Move(move * speed * Time.deltaTime);
@@ -51,7 +57,21 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.Move(velocity * Time.deltaTime);
 
+        if (!isJumping && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0 || !isGrounded))
+        {
+            if (!pasos.isPlaying)
+            {
+                pasos.Play();
+            }
+        }
+        else
+        {
+            pasos.Stop();
+        }
 
+        if (isGrounded)
+        {
+            isJumping = false;
+        }
     }
-
 }
