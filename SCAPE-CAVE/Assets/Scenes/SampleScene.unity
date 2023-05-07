@@ -3429,7 +3429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &450559059
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4127,7 +4127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &509864040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32281,7 +32281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1446858094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43229,6 +43229,7 @@ GameObject:
   - component: {fileID: 3035005959496579117}
   - component: {fileID: 3035005959496579126}
   - component: {fileID: 3035005959496579127}
+  - component: {fileID: 3035005959496579128}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -43288,6 +43289,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   municion: {fileID: 795989752}
+--- !u!114 &3035005959496579128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3035005959496579116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3bc66171e86d041b6668ec906196f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon1: {fileID: 6969438242640859356}
+  weapon2: {fileID: 1485280227756141448}
+  gunInterface: {fileID: 509864039}
+  gunSight: {fileID: 658599862}
+  shotgunInterface: {fileID: 450559058}
+  shotgunSight: {fileID: 1446858093}
 --- !u!33 &3035005960439021234
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -155106,7 +155125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &6971221986631907614
 GameObject:
   m_ObjectHideFlags: 0
