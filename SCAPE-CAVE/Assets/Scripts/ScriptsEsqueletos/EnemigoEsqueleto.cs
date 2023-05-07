@@ -16,7 +16,10 @@ public class EnemigoEsqueleto : MonoBehaviour
 
     public GameObject target;
     public bool atacando;
-    public bool muerto =false;
+    public bool muerto = false;
+
+    public AudioSource audioPasos;
+    public AudioSource audioCorrer;
 
     //variables del spawn de munición de enemigos
     public GameObject specialAmmo;
@@ -26,22 +29,25 @@ public class EnemigoEsqueleto : MonoBehaviour
     {
         ani = GetComponent<Animator>();
         target = GameObject.Find("Player");
+        //audioPasos = GetComponent<AudioSource>();
     }
+
 
     // Update is called once per frame
     void Update()
     {
         Comportamiento_Enemigo();
-        
+
     }
 
     public void Comportamiento_Enemigo()
     {
-        if (muerto == false) { 
-            if(Vector3.Distance(transform.position, target.transform.position) > 10)
+        if (muerto == false)
+        {
+            if (Vector3.Distance(transform.position, target.transform.position) > 10)
             {
-            
-                ani.SetBool("run", false); 
+
+                ani.SetBool("run", false);
                 cronometro += 1 * Time.deltaTime;
                 if (cronometro >= 4)
                 {
@@ -53,23 +59,29 @@ public class EnemigoEsqueleto : MonoBehaviour
                     case 0:
                         ani.SetBool("walk", false);
                         print("Idle");
+                        audioPasos.Stop();
                         break;
                     case 1:
                         grado = Random.Range(0, 360);
                         angulo = Quaternion.Euler(0, grado, 0);
                         rutina++;
+                        audioPasos.Stop();
                         break;
                     case 2:
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
                         transform.Translate(Vector3.forward * 1 * Time.deltaTime);
                         ani.SetBool("walk", true);
+                        if (!audioPasos.isPlaying)
+                        {
+                            audioPasos.Play();
+                        }
                         //print("Comportamiento normal");
                         break;
                 }
             }
             else
             {
-                if(Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando)
+                if (Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando)
                 {
                     var lookPos = target.transform.position - transform.position;
                     lookPos.y = 0;
@@ -78,14 +90,18 @@ public class EnemigoEsqueleto : MonoBehaviour
                     ani.SetBool("walk", false);
                     ani.SetBool("run", true);
                     transform.Translate(Vector3.forward * 3 * Time.deltaTime);
-
+                    if (!audioCorrer.isPlaying)
+                    {
+                        audioCorrer.Play();
+                    }
                     ani.SetBool("attack", false);
                 }
                 else
                 {
+                    audioCorrer.Stop();
                     ani.SetBool("walk", false);
                     ani.SetBool("run", false);
-            
+
                     ani.SetBool("attack", true);
                     atacando = true;
 
@@ -108,7 +124,7 @@ public class EnemigoEsqueleto : MonoBehaviour
         {
             vidas--;
             barraVidaEnemigo.value = vidas;
-            if(vidas == 0)
+            if (vidas == 0)
             {
                 ani.SetBool("walk", false);
                 ani.SetBool("run", false);
