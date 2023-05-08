@@ -12078,6 +12078,52 @@ Transform:
   m_Father: {fileID: 571694271}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &811235042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811235043}
+  - component: {fileID: 811235044}
+  m_Layer: 0
+  m_Name: areaEsqueleto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &811235043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811235042}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.048166905, y: 1.3278384, z: 0}
+  m_LocalScale: {x: 3.333333, y: 3.333333, z: 3.333333}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1408385375}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &811235044
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811235042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.1652602
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.082630046, z: 0}
 --- !u!1 &811762311
 GameObject:
   m_ObjectHideFlags: 0
@@ -30295,6 +30341,7 @@ Transform:
   - {fileID: 1408385365}
   - {fileID: 1408385501}
   - {fileID: 793255211}
+  - {fileID: 811235043}
   m_Father: {fileID: 2089374352}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30855,8 +30902,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.4827704, y: 2.5945122, z: 1.1673188}
-  m_Center: {x: -1.5507611, y: -1.4180499, z: -1.7437085}
+  m_Size: {x: 1.4827704, y: 3.675755, z: 1.1673188}
+  m_Center: {x: -1.5507604, y: -0.8774377, z: -1.7437094}
 --- !u!1 &1408621807
 GameObject:
   m_ObjectHideFlags: 0
@@ -31579,9 +31626,9 @@ GameObject:
   - component: {fileID: 1408385375}
   - component: {fileID: 1399107373}
   - component: {fileID: 1408522831}
-  - component: {fileID: 1408621952}
   - component: {fileID: 1408621953}
   - component: {fileID: 1408621954}
+  - component: {fileID: 1408621955}
   m_Layer: 0
   m_Name: SkeletonOutlaw - LOD0
   m_TagString: Enemy
@@ -31589,20 +31636,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1408621952
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408621951}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.6490453
-  m_Height: 3.6556792
-  m_Direction: 1
-  m_Center: {x: -0.04816691, y: 1.3278384, z: 0}
 --- !u!82 &1408621953
 AudioSource:
   m_ObjectHideFlags: 0
@@ -31795,6 +31828,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &1408621955
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408621951}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &1408622017
 GameObject:
   m_ObjectHideFlags: 0

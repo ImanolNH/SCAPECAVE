@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int shotgunAmmoCargador = 0;
 
     public bool shotgun = true;
+    public bool sinVidas = false;
 
     /*public TMP_Text municionTexto;
     public estadisticas municion;*/

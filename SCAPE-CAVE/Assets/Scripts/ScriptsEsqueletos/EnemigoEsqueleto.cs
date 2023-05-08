@@ -44,7 +44,7 @@ public class EnemigoEsqueleto : MonoBehaviour
     {
         if (muerto == false)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > 10)
+            if (Vector3.Distance(transform.position, target.transform.position) > 10 || GameManager.Instance.sinVidas == true)
             {
 
                 ani.SetBool("run", false);
@@ -81,8 +81,9 @@ public class EnemigoEsqueleto : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando)
+                if (Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando && GameManager.Instance.sinVidas == false)
                 {
+                    Debug.Log(GameManager.Instance.sinVidas.ToString());
                     var lookPos = target.transform.position - transform.position;
                     lookPos.y = 0;
                     var rotation = Quaternion.LookRotation(lookPos);
@@ -95,17 +96,18 @@ public class EnemigoEsqueleto : MonoBehaviour
                         audioCorrer.Play();
                     }
                     ani.SetBool("attack", false);
-                }
-                else
+                }else
                 {
-                    audioCorrer.Stop();
-                    ani.SetBool("walk", false);
-                    ani.SetBool("run", false);
+                    if (GameManager.Instance.sinVidas == false) { 
+                        audioCorrer.Stop();
+                        ani.SetBool("walk", false);
+                        ani.SetBool("run", false);
 
-                    ani.SetBool("attack", true);
-                    atacando = true;
-
+                        ani.SetBool("attack", true);
+                        atacando = true;
+                    }
                 }
+                
             }
         }
 
@@ -115,6 +117,13 @@ public class EnemigoEsqueleto : MonoBehaviour
     {
         ani.SetBool("attack", false);
         atacando = false;
+    }
+    public void Comprobar_Ani()
+    {
+        if (GameManager.Instance.sinVidas == true) { 
+            ani.SetBool("attack", false);
+            atacando = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
