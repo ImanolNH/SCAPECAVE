@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 8386776688166025982}
   m_Layer: 0
   m_Name: Bala escopeta
-  m_TagString: ShotgunAmmo
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
