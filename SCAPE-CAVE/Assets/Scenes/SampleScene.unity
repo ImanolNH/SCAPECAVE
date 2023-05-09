@@ -48418,7 +48418,10 @@ Transform:
   - {fileID: 947720163}
   - {fileID: 6022160967501080422}
   - {fileID: 6022160967474723524}
+<<<<<<< HEAD
   - {fileID: 6022160967296916771}
+=======
+>>>>>>> parent of 4ce3abc (Cambio antorcha por linterna)
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
