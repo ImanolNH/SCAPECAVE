@@ -28,53 +28,51 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
+            
+            if (GameManager.Instance.gunAmmo == 0 && GameManager.Instance.ammoCargador == 0)
             {
-                GameManager.Instance.gunAmmo--;
-                if (GameManager.Instance.gunAmmo == 0 && GameManager.Instance.ammoCargador == 0)
+
+                if (!mensajeMostrado)
                 {
-
-                    if (!mensajeMostrado)
-                    {
-                        mensaje.text = "No hay munición";
-                        StartCoroutine(EsperarYEliminarMensaje(2f));
-                        mensajeMostrado = true;
-                    }
-
+                    mensaje.text = "No hay munición";
+                    StartCoroutine(EsperarYEliminarMensaje(2f));
+                    mensajeMostrado = true;
                 }
-                else if (GameManager.Instance.gunAmmo == 0 && GameManager.Instance.ammoCargador > 0)
+
+            }
+            else if (GameManager.Instance.gunAmmo == 0 && GameManager.Instance.ammoCargador > 0)
+            {
+                if (!mensajeMostrado)
                 {
-                    if (!mensajeMostrado)
-                    {
-                        mensaje.text = "Debes recargar munición";
-                        StartCoroutine(EsperarYEliminarMensaje(2f));
-                        mensajeMostrado = true;
-                    }
-                }
-                else
-                {
-                    if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
-                    {
-                        GameManager.Instance.gunAmmo--;
-
-                        string ammo = GameManager.Instance.gunAmmo.ToString();
-                        municion.text = ammo;
-
-                        GameObject newBullet;
-
-                        newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
-
-                        newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
-
-                        shotRateTime = Time.time + shotRate;
-
-                        Destroy(newBullet, 3);
-
-                        SoundShot.PlayOneShot(Shot);
-                    }
-
+                    mensaje.text = "Debes recargar munición";
+                    StartCoroutine(EsperarYEliminarMensaje(2f));
+                    mensajeMostrado = true;
                 }
             }
+            else
+            {
+                if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
+                {
+                    GameManager.Instance.gunAmmo--;
+
+                    string ammo = GameManager.Instance.gunAmmo.ToString();
+                    municion.text = ammo;
+
+                    GameObject newBullet;
+
+                    newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+
+                    newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
+
+                    shotRateTime = Time.time + shotRate;
+
+                    Destroy(newBullet, 3);
+
+                    SoundShot.PlayOneShot(Shot);
+                }
+
+            }
+            
         }
     }
 
