@@ -12,6 +12,8 @@ public class Gun : MonoBehaviour
     public float shotRate =0.5f;
     
     private float shotRateTime =0;
+    public AudioSource SoundShot;
+    public AudioClip Shot;
 
     // Start is called before the first frame update
 
@@ -38,6 +40,8 @@ public class Gun : MonoBehaviour
                 shotRateTime=Time.time+shotRate;
 
                 Destroy(newBullet, 3);
+
+                SoundShot.PlayOneShot(Shot);
             }
             
         }
