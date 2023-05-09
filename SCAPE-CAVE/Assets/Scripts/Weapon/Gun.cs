@@ -17,29 +17,63 @@ public class Gun : MonoBehaviour
 
     public TMP_Text municion;
     public TMP_Text cargador;
+
+    public TMP_Text mensaje;
+
+    private bool mensajeMostrado = false;
     //public estadisticas municion;
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            if(Time.time>shotRateTime && GameManager.Instance.gunAmmo>0){
-                GameManager.Instance.gunAmmo--;
+            if (GameManager.Instance.gunAmmo == 0 && GameManager.Instance.ammoCargador ==0) {
 
-                string ammo = GameManager.Instance.gunAmmo.ToString();
-                municion.text = ammo;
+                if (!mensajeMostrado)
+                {
+                    mensaje.text = "No hay munición";
+                    StartCoroutine(EsperarYEliminarMensaje(2f));
+                    mensajeMostrado = true;
+                }
 
-                GameObject newBullet;
+            }
+            else if(GameManager.Instance.gunAmmo == 0 && GameManager.Instance.ammoCargador > 0)
+            {
+                if (!mensajeMostrado)
+                {
+                    mensaje.text = "Debes recargar munición";
+                    StartCoroutine(EsperarYEliminarMensaje(2f));
+                    mensajeMostrado = true;
+                }
+            }
+            else
+            {
+                if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
+                {
+                    GameManager.Instance.gunAmmo--;
 
-                newBullet=Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+                    string ammo = GameManager.Instance.gunAmmo.ToString();
+                    municion.text = ammo;
 
-                newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward*shotForce);
-                
-                shotRateTime=Time.time+shotRate;
+                    GameObject newBullet;
 
-                Destroy(newBullet, 3);
+                    newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+
+                    newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
+
+                    shotRateTime = Time.time + shotRate;
+
+                    Destroy(newBullet, 3);
+                }
+
             }
             
         }
+    }
+    IEnumerator EsperarYEliminarMensaje(float tiempo)
+    {
+        yield return new WaitForSeconds(tiempo);
+        mensaje.text = "";
+        mensajeMostrado = false;
     }
 }

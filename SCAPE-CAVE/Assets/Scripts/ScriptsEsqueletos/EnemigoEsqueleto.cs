@@ -117,13 +117,7 @@ public class EnemigoEsqueleto : MonoBehaviour
     {
         ani.SetBool("attack", false);
         atacando = false;
-    }
-    public void Comprobar_Ani()
-    {
-        if (GameManager.Instance.sinVidas == true) { 
-            ani.SetBool("attack", false);
-            atacando = false;
-        }
+        ani.SetBool("attack", false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -133,7 +127,27 @@ public class EnemigoEsqueleto : MonoBehaviour
         {
             vidas--;
             barraVidaEnemigo.value = vidas;
-            if (vidas == 0)
+            if (vidas <= 0)
+            {
+                ani.SetBool("walk", false);
+                ani.SetBool("run", false);
+
+                ani.SetBool("attack", false);
+                ani.SetTrigger("Death");
+                muerto = true;
+                //creación de la munición especial
+                GameObject newBullet;
+
+                newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
+                Destroy(gameObject, 2);
+            }
+        }
+        if (other.gameObject.CompareTag("ShotgunAmmo"))
+        {
+            vidas--;
+            vidas--;
+            barraVidaEnemigo.value = vidas;
+            if (vidas <= 0)
             {
                 ani.SetBool("walk", false);
                 ani.SetBool("run", false);
