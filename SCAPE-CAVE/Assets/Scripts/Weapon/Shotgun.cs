@@ -17,30 +17,69 @@ public class Shotgun : MonoBehaviour
 
     public TMP_Text municion;
     public TMP_Text cargador;
+
+    public TMP_Text mensaje;
+    private bool mensajeMostrado = false;
     //public estadisticas municion;
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            if(Time.time>shotRateTime && GameManager.Instance.shotgunAmmo > 0){
+            if (Time.time > shotRateTime && GameManager.Instance.shotgunAmmo > 0)
+            {
                 GameManager.Instance.shotgunAmmo--;
+                if (GameManager.Instance.shotgunAmmo == 0 && GameManager.Instance.shotgunAmmoCargador == 0)
+                {
 
-                string ammoEscopeta = GameManager.Instance.shotgunAmmo.ToString();
-                municion.text = ammoEscopeta;
+                    if (!mensajeMostrado)
+                    {
+                        mensaje.text = "No hay munición";
+                        StartCoroutine(EsperarYEliminarMensaje(2f));
+                        mensajeMostrado = true;
+                    }
 
-                Debug.Log("Municion disparo:  " + ammoEscopeta);
-                GameObject newBullet;
+                }
+                else if (GameManager.Instance.shotgunAmmo == 0 && GameManager.Instance.shotgunAmmoCargador > 0)
+                {
+                    if (!mensajeMostrado)
+                    {
+                        mensaje.text = "Debes recargar munición";
+                        StartCoroutine(EsperarYEliminarMensaje(2f));
+                        mensajeMostrado = true;
+                    }
+                }
+                else
+                {
+                    if (Time.time > shotRateTime && GameManager.Instance.shotgunAmmo > 0)
+                    {
+                        GameManager.Instance.shotgunAmmo--;
 
-                newBullet=Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+                        string ammo = GameManager.Instance.shotgunAmmo.ToString();
+                        municion.text = ammo;
 
-                newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward*shotForce);
-                
-                shotRateTime=Time.time+shotRate;
+                        GameObject newBullet;
 
-                Destroy(newBullet, 0.25f);
+                        newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+
+                        newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
+
+                        shotRateTime = Time.time + shotRate;
+
+                        Destroy(newBullet, 0.25f);
+
+                        //SoundShot.PlayOneShot(Shot);
+                    }
+
+                }
             }
-            
         }
+    }
+
+    IEnumerator EsperarYEliminarMensaje(float tiempo)
+    {
+        yield return new WaitForSeconds(tiempo);
+        mensaje.text = "";
+        mensajeMostrado = false;
     }
 }
