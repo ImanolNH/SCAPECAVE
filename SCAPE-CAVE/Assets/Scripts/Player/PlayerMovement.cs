@@ -7,8 +7,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
 
-    public float speed = 8f;
+    public float speed = 5f;
     private float gravity = -15f;
+    public float maxDistance = 0.2f;
 
     public Transform groundCheck;
     public float sphereRadius = 0.3f;
@@ -31,13 +32,24 @@ public class PlayerMovement : MonoBehaviour
     {
         string vidas = GameManager.Instance.vidas.ToString();
         vidasTexto.text = vidas;
-        isGrounded = Physics.CheckSphere(groundCheck.position, sphereRadius, groundMask);
+
+        //Detectar si el "player" esta con los pies en la tierra
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, maxDistance))
+        {
+            isGrounded = false;
+        }
+        else
+        {
+            isGrounded = true;
+        }
 
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
+        //Establecemos movimientos a las variables
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 

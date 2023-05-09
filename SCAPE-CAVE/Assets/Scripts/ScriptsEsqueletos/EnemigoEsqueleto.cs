@@ -58,7 +58,7 @@ public class EnemigoEsqueleto : MonoBehaviour
                 {
                     case 0:
                         ani.SetBool("walk", false);
-                        print("Idle");
+                        //print("Idle");
                         audioPasos.Stop();
                         break;
                     case 1:
