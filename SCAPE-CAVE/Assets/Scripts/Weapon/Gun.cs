@@ -12,10 +12,9 @@ public class Gun : MonoBehaviour
     public float shotRate =0.5f;
     
     private float shotRateTime =0;
+    
     public AudioSource SoundShot;
     public AudioClip Shot;
-
-    // Start is called before the first frame update
 
     public TMP_Text municion;
     public TMP_Text cargador;
@@ -23,7 +22,6 @@ public class Gun : MonoBehaviour
     public TMP_Text mensaje;
     private bool mensajeMostrado = false;
     //public estadisticas municion;
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))

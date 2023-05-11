@@ -13,15 +13,15 @@ public class Shotgun : MonoBehaviour
     
     private float shotRateTime =0;
 
-    // Start is called before the first frame update
-
     public TMP_Text municion;
     public TMP_Text cargador;
+
+    public AudioSource SoundShot;
+    public AudioClip Shot;
 
     public TMP_Text mensaje;
     private bool mensajeMostrado = false;
     //public estadisticas municion;
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -68,7 +68,7 @@ public class Shotgun : MonoBehaviour
 
                         Destroy(newBullet, 0.25f);
 
-                        //SoundShot.PlayOneShot(Shot);
+                        SoundShot.PlayOneShot(Shot);
                     }
 
                 }
