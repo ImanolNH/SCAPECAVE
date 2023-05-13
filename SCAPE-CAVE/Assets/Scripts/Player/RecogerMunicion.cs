@@ -38,7 +38,7 @@ public class RecogerMunicion : MonoBehaviour
                     GameManager.Instance.gunAmmo += gameObject.GetComponent<AmmoBox>().ammo;
 
                     municionTotal = GameManager.Instance.gunAmmo;
-                    Debug.Log("Municion arma: " + municionTotal.ToString());
+                    //Debug.Log("Municion arma: " + municionTotal.ToString());
                     if (municionTotal > 10)
                     {   
                         GameManager.Instance.gunAmmo = 10;
