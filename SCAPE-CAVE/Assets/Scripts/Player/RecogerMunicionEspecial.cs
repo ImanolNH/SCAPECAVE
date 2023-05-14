@@ -36,7 +36,7 @@ public class RecogerMunicionEspecial : MonoBehaviour
                 instrucciones.text = instrucc;
                 if (Input.GetKey(KeyCode.E))
                 {
-                    GameManager.Instance.shotgunAmmo += gameObject.GetComponent<AmmoBox>().ammo;
+                    GameManager.Instance.shotgunAmmo += gameObject.GetComponent<SpecialAmmoBox>().ammo;
 
                     municionTotal = GameManager.Instance.shotgunAmmo;
                     Debug.Log("Municion:  " + municionTotal.ToString());
@@ -45,7 +45,7 @@ public class RecogerMunicionEspecial : MonoBehaviour
                         GameManager.Instance.shotgunAmmo = 5;
                         diferenciaDeMunicion = municionTotal - 5;
 
-                        cargador = municionTotal + GameManager.Instance.shotgunAmmoCargador;
+                        cargador = diferenciaDeMunicion + GameManager.Instance.shotgunAmmoCargador;
                         if (cargador > 5)
                         {
                             cargador = 5;

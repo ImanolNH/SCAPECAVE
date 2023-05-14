@@ -19,7 +19,9 @@ public class GunSwap : MonoBehaviour
 
     //texto escopeta
     //public TMP_Text shotgunAmmo;
-    //public TMP_Text shotgunMagazine;
+    public TMP_Text aviso;
+
+    public TMP_Text mensaje;
 
     private int indiceAActual = 0;
     private GameObject[] weapons;
@@ -43,13 +45,29 @@ public class GunSwap : MonoBehaviour
         // Intercambiar armas al presionar las teclas 1 o 2
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SwitchWeapon(0);
-
+            if (GameManager.Instance.shotgunReload == true || GameManager.Instance.gunReload == true)
+            {
+                aviso.text = "No puedes intercambiar armas mientras recargas";
+                StartCoroutine(EsperarYEliminarMensaje(1.5f));
+            }
+            else
+            {
+                mensaje.text = "";
+                SwitchWeapon(0);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SwitchWeapon(1);
-
+            if (GameManager.Instance.gunReload == true || GameManager.Instance.shotgunReload == true)
+            {
+                aviso.text = "No puedes intercambiar armas mientras recargas";
+                StartCoroutine(EsperarYEliminarMensaje(1.5f));
+            }
+            else
+            {
+                mensaje.text = "";
+                SwitchWeapon(1);
+            }
         }
     }
 
@@ -79,5 +97,11 @@ public class GunSwap : MonoBehaviour
             shotgunSight.gameObject.SetActive(true);
             GameManager.Instance.shotgun = true;
         }
+    }
+
+    IEnumerator EsperarYEliminarMensaje(float tiempo)
+    {
+        yield return new WaitForSeconds(tiempo);
+        aviso.text = "";
     }
 }

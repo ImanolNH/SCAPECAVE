@@ -36,14 +36,18 @@ public class GunReload : MonoBehaviour
 
     private IEnumerator Reload()
     {
+        isReloading = true;
+
+        GameManager.Instance.gunReload = true;
         cargando.gameObject.SetActive(true);
         mira.gameObject.SetActive(false);
-        isReloading = true;
+
 
         mainAmmo = GameManager.Instance.gunAmmo;
         ammoCargador = GameManager.Instance.ammoCargador;
         // Esperar por el tiempo de recarga
         yield return new WaitForSeconds(reloadTime);
+
         cargando.gameObject.SetActive(false);
         mira.gameObject.SetActive(true);
         // Calcular cuantas balas se pueden recargar
@@ -59,6 +63,8 @@ public class GunReload : MonoBehaviour
         string Tcargador = GameManager.Instance.ammoCargador.ToString();
         municion.text = Tammo;
         cargador.text = Tcargador;
+
+        GameManager.Instance.gunReload = false;
 
         isReloading = false;
     }

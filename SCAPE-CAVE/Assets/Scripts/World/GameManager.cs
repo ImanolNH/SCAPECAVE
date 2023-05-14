@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
     //Munción Pistola
     public int gunAmmo=5;
     public int ammoCargador=0;
+    public bool gunReload = false;
 
     //Munción Escopeta
     public int shotgunAmmo = 2;
     public int shotgunAmmoCargador = 0;
+    public bool shotgunReload=false;
 
     public bool shotgun = true;
     public bool sinVidas = false;

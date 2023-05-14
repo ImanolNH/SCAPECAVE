@@ -6,7 +6,7 @@ using TMPro;
 public class ShotgunReload : MonoBehaviour
 {
 
-    private int maxClipAmmo = 10;
+    private int maxClipAmmo = 5;
     private int mainAmmo;
     private int ammoCargador;
 
@@ -37,8 +37,11 @@ public class ShotgunReload : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
+
+        GameManager.Instance.shotgunReload = true;
         cargando.gameObject.SetActive(true);
         mira.gameObject.SetActive(false);
+
         mainAmmo = GameManager.Instance.shotgunAmmo;
         ammoCargador = GameManager.Instance.shotgunAmmoCargador;
         // Esperar por el tiempo de recarga
@@ -59,6 +62,7 @@ public class ShotgunReload : MonoBehaviour
         municion.text = Tammo;
         cargador.text = Tcargador;
 
+        GameManager.Instance.shotgunReload = false;
         isReloading = false;
     }
 }
