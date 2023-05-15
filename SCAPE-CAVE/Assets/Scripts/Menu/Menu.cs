@@ -1,40 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MenuPausa : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     public static bool JuegoPausado = false;
 
-    public GameObject menuPausa;
+    [SerializeField] GameObject MenuPausa;
 
     void Update()
     {
-        if (Input.GetKeyDown("p"))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (JuegoPausado)
             {
-                Pausar();
-            }else
-            {
                 Reaundar();
+            }
+            else
+            {
+                Salir();
             }
         }
     }
 
     public void Reaundar()
     {
-        menuPausa.SetActive(false);
-        Time.timeScale = 1;
+        MenuPausa.SetActive(false);
+        Time.timeScale = 1f;
         JuegoPausado = false;
+        Debug.Log("Reanudando juego...");
     }
 
     public void Pausar()
     {
-        menuPausa.SetActive(true);
-        Time.timeScale = 0;
+        MenuPausa.SetActive(true);
+        Time.timeScale = 0f;
         JuegoPausado = true;
+        Debug.Log("Pausando juego...");
     }
 
     public void Salir()
