@@ -11,7 +11,7 @@ public class Menu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetButtonDown("menu"))
         {
             if (JuegoPausado)
             {
