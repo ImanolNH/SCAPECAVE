@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
     public static bool JuegoPausado = false;
 
-    [SerializeField] GameObject MenuPausa;
+    public GameObject MenuPausa;
 
     void Update()
     {
@@ -14,16 +15,16 @@ public class Menu : MonoBehaviour
         {
             if (JuegoPausado)
             {
-                Reaundar();
+                Reanudar();
             }
             else
             {
-                Salir();
+                Pausar();
             }
         }
     }
 
-    public void Reaundar()
+    public void Reanudar()
     {
         MenuPausa.SetActive(false);
         Time.timeScale = 1f;
