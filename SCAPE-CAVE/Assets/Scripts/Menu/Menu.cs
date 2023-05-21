@@ -9,6 +9,11 @@ public class Menu : MonoBehaviour
 
     public GameObject MenuPausa;
 
+    void Start()
+    {
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         if (Input.GetButtonDown("menu"))
@@ -26,6 +31,7 @@ public class Menu : MonoBehaviour
 
     public void Reanudar()
     {
+        Cursor.visible = false;
         MenuPausa.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
@@ -34,10 +40,19 @@ public class Menu : MonoBehaviour
 
     public void Pausar()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         MenuPausa.SetActive(true);
         Time.timeScale = 0f;
         JuegoPausado = true;
         Debug.Log("Pausando juego...");
+    }
+
+    public void Reiniciar()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Reiniciando juego...");
     }
 
     public void Salir()

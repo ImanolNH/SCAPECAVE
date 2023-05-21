@@ -7,7 +7,9 @@ public class MenuFinal : MonoBehaviour
 {
     public void Jugar()
     {
-
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Reiniciando juego...");
     }
 
     public void Salir()
