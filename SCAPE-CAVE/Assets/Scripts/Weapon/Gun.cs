@@ -85,7 +85,7 @@ public class Gun : MonoBehaviour
     {
         yield return new WaitForSeconds(tiempo);
         mensaje.text = "";
-        Debug.Log("polllllaaaa");
+        //Debug.Log("polllllaaaa");
         //mensajeMostrado = false;
     }
 
