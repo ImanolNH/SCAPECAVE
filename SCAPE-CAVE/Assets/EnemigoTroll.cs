@@ -46,7 +46,7 @@ public class EnemigoTroll : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, target.transform.position) > 10 || GameManager.Instance.sinVidas == true)
             {
-                Debug.Log("rutina");
+
                 ani.SetBool("run", false);
                 cronometro += 1 * Time.deltaTime;
                 if (cronometro >= 4)
@@ -69,7 +69,7 @@ public class EnemigoTroll : MonoBehaviour
                         break;
                     case 2:
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
-                        transform.Translate(Vector3.forward * 0.5f * Time.deltaTime);
+                        transform.Translate(Vector3.forward * 1 * Time.deltaTime);
                         ani.SetBool("walk", true);
                         /*if (!audioPasos.isPlaying)
                         {
@@ -81,10 +81,9 @@ public class EnemigoTroll : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(transform.position, target.transform.position) > 1.25f && !atacando && GameManager.Instance.sinVidas == false)
+                if (Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando && GameManager.Instance.sinVidas == false)
                 {
-                    Debug.Log("persiguiendo");
-                    Debug.Log(GameManager.Instance.sinVidas.ToString());
+                    //Debug.Log(Vector3.Distance(transform.position, target.transform.position).ToString());
                     var lookPos = target.transform.position - transform.position;
                     lookPos.y = 0;
                     var rotation = Quaternion.LookRotation(lookPos);
@@ -100,9 +99,9 @@ public class EnemigoTroll : MonoBehaviour
                 }
                 else
                 {
+                    //Debug.Log(Vector3.Distance(transform.position, target.transform.position).ToString());
                     if (GameManager.Instance.sinVidas == false)
                     {
-                        Debug.Log("atacando");
                         //audioCorrer.Stop();
                         ani.SetBool("walk", false);
                         ani.SetBool("run", false);
@@ -122,7 +121,6 @@ public class EnemigoTroll : MonoBehaviour
         ani.SetBool("attack", false);
         atacando = false;
         ani.SetBool("attack", false);
-
     }
 
     private void OnTriggerEnter(Collider other)
