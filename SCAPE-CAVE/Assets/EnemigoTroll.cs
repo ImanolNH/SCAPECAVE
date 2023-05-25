@@ -12,11 +12,13 @@ public class EnemigoTroll : MonoBehaviour
     public float grado;
 
     public Slider barraVidaEnemigo;
-    public int vidas = 3;
+    public int vidas = 15;
 
     public GameObject target;
     public bool atacando;
     public bool muerto = false;
+
+    public BoxCollider boxCollider;
 
     //public AudioSource audioPasos;
     //public AudioSource audioCorrer;
@@ -121,6 +123,17 @@ public class EnemigoTroll : MonoBehaviour
         ani.SetBool("attack", false);
         atacando = false;
         ani.SetBool("attack", false);
+    }
+
+    public void ActivateCollider()
+    {
+        boxCollider.enabled = true;
+    }
+
+    // Método para desactivar el BoxCollider
+    public void DeactivateCollider()
+    {
+        boxCollider.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
