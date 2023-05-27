@@ -5,35 +5,20 @@ using UnityEngine.UI;
 
 public class AnimationController : MonoBehaviour
 {
-    public Sprite[] frames; // Array de los frames de la animación
-    public float frameRate = 0.3f; // Velocidad de reproducción de la animación
-
-    public Image image;
-    private int currentFrameIndex = 0;
-    private float timer = 0f;
-
-    private void Start()
-    {
-        //image = GetComponent<Image>();
-    }
-
+    public Animation animacion;
+    bool animacionEjecutada=false;
     private void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= frameRate)
+        if (GameManager.Instance.enemigosEliminados == 3 && animacionEjecutada==false)
         {
-            timer = 0f;
-
-            if (currentFrameIndex < frames.Length)
-            {
-                image.sprite = frames[currentFrameIndex];
-                currentFrameIndex++;
-                if (currentFrameIndex == 29)
-                {
-                    currentFrameIndex = 0;
-                }
-            }
+            animacion.Play();
+            animacionEjecutada = true;
         }
+        
+    }
+
+    public void Final_Ani()
+    {
+        //ani.SetBool("abrirPuerta", false);
     }
 }

@@ -140,6 +140,8 @@ public class EnemigoEsqueleto : MonoBehaviour
                 GameObject newBullet;
 
                 newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
+                GameManager.Instance.enemigosEliminados += 1;
+                Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
                 Destroy(gameObject, 2);
             }
 
@@ -160,6 +162,8 @@ public class EnemigoEsqueleto : MonoBehaviour
                 GameObject newBullet;
 
                 newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
+                GameManager.Instance.enemigosEliminados+=1;
+                Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
                 Destroy(gameObject, 2);
             }
         }
