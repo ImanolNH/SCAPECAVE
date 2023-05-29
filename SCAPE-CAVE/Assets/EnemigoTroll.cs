@@ -20,7 +20,6 @@ public class EnemigoTroll : MonoBehaviour
 
     public BoxCollider boxCollider;
 
-    //public AudioSource audioPasos;
     //public AudioSource audioCorrer;
 
     //variables del spawn de munición de enemigos
@@ -61,22 +60,16 @@ public class EnemigoTroll : MonoBehaviour
                     case 0:
                         ani.SetBool("walk", false);
                         //print("Idle");
-                        //audioPasos.Stop();
                         break;
                     case 1:
                         grado = Random.Range(0, 360);
                         angulo = Quaternion.Euler(0, grado, 0);
                         rutina++;
-                        //audioPasos.Stop();
                         break;
                     case 2:
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
                         transform.Translate(Vector3.forward * 1 * Time.deltaTime);
                         ani.SetBool("walk", true);
-                        /*if (!audioPasos.isPlaying)
-                        {
-                            audioPasos.Play();
-                        }*/
                         //print("Comportamiento normal");
                         break;
                 }
