@@ -1437,7 +1437,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 57815533}
   audioCorrer: {fileID: 57815532}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 243352842}
@@ -2794,7 +2793,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 107897987}
   audioCorrer: {fileID: 107897986}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 350875371}
@@ -4143,7 +4141,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 134044678}
   audioCorrer: {fileID: 134044677}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 493084653}
@@ -6613,7 +6610,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 0}
   audioCorrer: {fileID: 0}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 500378964}
@@ -11687,7 +11683,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 0}
   audioCorrer: {fileID: 0}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 1200083349}
@@ -17016,7 +17011,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 0}
   audioCorrer: {fileID: 0}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 2136500346}
@@ -29328,7 +29322,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 1156585413}
   audioCorrer: {fileID: 1156585412}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 707914}
@@ -36283,7 +36276,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 1401023039}
   audioCorrer: {fileID: 1401023038}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 1335235892}
@@ -37681,7 +37673,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 1408621953}
   audioCorrer: {fileID: 1408621954}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 793255211}
@@ -41712,7 +41703,6 @@ MonoBehaviour:
   target: {fileID: 0}
   atacando: 0
   muerto: 0
-  audioPasos: {fileID: 0}
   audioCorrer: {fileID: 0}
   specialAmmo: {fileID: 7731921844803352238}
   spawnPoint: {fileID: 554494693}
