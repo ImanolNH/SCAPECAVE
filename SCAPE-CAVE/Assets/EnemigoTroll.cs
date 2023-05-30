@@ -45,7 +45,7 @@ public class EnemigoTroll : MonoBehaviour
     {
         if (muerto == false)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > 10 || GameManager.Instance.sinVidas == true)
+            if (Vector3.Distance(transform.position, target.transform.position) > 7 || GameManager.Instance.sinVidas == true)
             {
 
                 ani.SetBool("run", false);
@@ -85,7 +85,7 @@ public class EnemigoTroll : MonoBehaviour
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 2);
                     ani.SetBool("walk", false);
                     ani.SetBool("run", true);
-                    transform.Translate(Vector3.forward * 1.5f * Time.deltaTime);
+                    transform.Translate(Vector3.forward * 1.25f * Time.deltaTime);
                     /*if (!audioCorrer.isPlaying)
                     {
                         audioCorrer.Play();
