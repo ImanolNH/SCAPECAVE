@@ -78,19 +78,22 @@ public class EnemigoTroll : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando && GameManager.Instance.sinVidas == false)
                 {
-                    //Debug.Log(Vector3.Distance(transform.position, target.transform.position).ToString());
+                    Debug.Log(Vector3.Distance(transform.position, target.transform.position).ToString());
                     var lookPos = target.transform.position - transform.position;
                     lookPos.y = 0;
                     var rotation = Quaternion.LookRotation(lookPos);
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 2);
                     ani.SetBool("walk", false);
-                    ani.SetBool("run", true);
-                    transform.Translate(Vector3.forward * 1.25f * Time.deltaTime);
+                    ani.SetBool("attack", false);
+                    ani.SetBool("run", false);
+                    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
                     /*if (!audioCorrer.isPlaying)
                     {
                         audioCorrer.Play();
                     }*/
-                    ani.SetBool("attack", false);
+
+                    ani.SetBool("run", true);
+                   
                 }
                 else
                 {
@@ -100,6 +103,7 @@ public class EnemigoTroll : MonoBehaviour
                         //audioCorrer.Stop();
                         ani.SetBool("walk", false);
                         ani.SetBool("run", false);
+                        ani.SetBool("attack", false);
 
                         ani.SetBool("attack", true);
                         atacando = true;
