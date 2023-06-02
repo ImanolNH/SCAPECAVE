@@ -12,13 +12,11 @@ public class EnemigoTroll : MonoBehaviour
     public float grado;
 
     public Slider barraVidaEnemigo;
-    public int vidas = 15;
+    public int vidas = 3;
 
     public GameObject target;
     public bool atacando;
     public bool muerto = false;
-
-    public BoxCollider boxCollider;
 
     //public AudioSource audioCorrer;
 
@@ -45,7 +43,7 @@ public class EnemigoTroll : MonoBehaviour
     {
         if (muerto == false)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > 7 || GameManager.Instance.sinVidas == true)
+            if (Vector3.Distance(transform.position, target.transform.position) > 10 || GameManager.Instance.sinVidas == true)
             {
 
                 ani.SetBool("run", false);
@@ -76,31 +74,24 @@ public class EnemigoTroll : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando && GameManager.Instance.sinVidas == false)
+                if (Vector3.Distance(transform.position, target.transform.position) > 1.42f && !atacando && GameManager.Instance.sinVidas == false)
                 {
-                    Debug.Log(Vector3.Distance(transform.position, target.transform.position).ToString());
+                    Debug.Log(GameManager.Instance.sinVidas.ToString());
                     var lookPos = target.transform.position - transform.position;
                     lookPos.y = 0;
                     var rotation = Quaternion.LookRotation(lookPos);
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 2);
                     ani.SetBool("walk", false);
                     ani.SetBool("attack", false);
-                    ani.SetBool("run", false);
-                    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
-                    /*if (!audioCorrer.isPlaying)
-                    {
-                        audioCorrer.Play();
-                    }*/
-
                     ani.SetBool("run", true);
-                   
+                    transform.Translate(Vector3.forward * 1.1f * Time.deltaTime);
+
                 }
                 else
                 {
-                    //Debug.Log(Vector3.Distance(transform.position, target.transform.position).ToString());
                     if (GameManager.Instance.sinVidas == false)
                     {
-                        //audioCorrer.Stop();
+
                         ani.SetBool("walk", false);
                         ani.SetBool("run", false);
                         ani.SetBool("attack", false);
@@ -120,17 +111,6 @@ public class EnemigoTroll : MonoBehaviour
         ani.SetBool("attack", false);
         atacando = false;
         ani.SetBool("attack", false);
-    }
-
-    public void ActivateCollider()
-    {
-        boxCollider.enabled = true;
-    }
-
-    // Método para desactivar el BoxCollider
-    public void DeactivateCollider()
-    {
-        boxCollider.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -153,6 +133,8 @@ public class EnemigoTroll : MonoBehaviour
                 GameObject newBullet;
 
                 newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
+                GameManager.Instance.enemigosEliminados += 1;
+                Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
                 Destroy(gameObject, 2);
             }
 
@@ -174,6 +156,8 @@ public class EnemigoTroll : MonoBehaviour
                 GameObject newBullet;
 
                 newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
+                GameManager.Instance.enemigosEliminados += 1;
+                Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
                 Destroy(gameObject, 2);
             }
         }
