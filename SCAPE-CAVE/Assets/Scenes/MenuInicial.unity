@@ -411,7 +411,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1990911929}
         m_TargetAssemblyTypeName: MenuInicial, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Controles
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
