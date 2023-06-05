@@ -12,7 +12,8 @@ public class EnemigoTroll : MonoBehaviour
     public float grado;
 
     public Slider barraVidaEnemigo;
-    public int vidas = 3;
+    public int vidas = 12;
+    public bool vulnerable = false;
 
     public GameObject target;
     public bool atacando;
@@ -36,9 +37,9 @@ public class EnemigoTroll : MonoBehaviour
     void Update()
     {
         Comportamiento_Enemigo();
-
+        Debug.Log("vulnerable " + vulnerable);
     }
-
+ 
     public void Comportamiento_Enemigo()
     {
         if (muerto == false)
@@ -118,47 +119,51 @@ public class EnemigoTroll : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bala"))
         {
-            vidas--;
-            barraVidaEnemigo.value = vidas;
+            if (vulnerable == true) { 
+                vidas--;
+                barraVidaEnemigo.value = vidas;
 
-            if (vidas <= 0)
-            {
-                ani.SetBool("walk", false);
-                ani.SetBool("run", false);
+                if (vidas <= 0)
+                {
+                    ani.SetBool("walk", false);
+                    ani.SetBool("run", false);
 
-                ani.SetBool("attack", false);
-                ani.SetTrigger("Death");
-                muerto = true;
-                //creaci�n de la munici�n especial
-                GameObject newBullet;
+                    ani.SetBool("attack", false);
+                    ani.SetTrigger("Death");
+                    muerto = true;
+                    //creaci�n de la munici�n especial
+                    GameObject newBullet;
 
-                newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
-                GameManager.Instance.enemigosEliminados += 1;
-                Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
-                Destroy(gameObject, 2);
+                    newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
+                    GameManager.Instance.enemigosEliminados += 1;
+                    Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
+                    Destroy(gameObject, 2);
+                }
             }
 
         }
         else if (other.gameObject.CompareTag("ShotgunAmmo"))
         {
-            vidas--;
-            vidas--;
-            barraVidaEnemigo.value = vidas;
-            if (vidas <= 0)
-            {
-                ani.SetBool("walk", false);
-                ani.SetBool("run", false);
+            if (vulnerable == true) { 
+                vidas--;
+                vidas--;
+                barraVidaEnemigo.value = vidas;
+                if (vidas <= 0)
+                {
+                    ani.SetBool("walk", false);
+                    ani.SetBool("run", false);
 
-                ani.SetBool("attack", false);
-                ani.SetTrigger("Death");
-                muerto = true;
-                //creaci�n de la munici�n especial
-                GameObject newBullet;
+                    ani.SetBool("attack", false);
+                    ani.SetTrigger("Death");
+                    muerto = true;
+                    //creaci�n de la munici�n especial
+                    GameObject newBullet;
 
-                newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
-                GameManager.Instance.enemigosEliminados += 1;
-                Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
-                Destroy(gameObject, 2);
+                    newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
+                    GameManager.Instance.enemigosEliminados += 1;
+                    Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
+                    Destroy(gameObject, 2);
+                }
             }
         }
     }
