@@ -12,7 +12,7 @@ public class EnemigoTroll : MonoBehaviour
     public float grado;
 
     public Slider barraVidaEnemigo;
-    public int vidas = 12;
+    public int vidas = 11;
     public bool vulnerable = false;
 
     public GameObject target;
@@ -44,7 +44,7 @@ public class EnemigoTroll : MonoBehaviour
     {
         if (muerto == false)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > 10 || GameManager.Instance.sinVidas == true)
+            if (Vector3.Distance(transform.position, target.transform.position) > 7 || GameManager.Instance.sinVidas == true)
             {
 
                 ani.SetBool("run", false);
@@ -119,6 +119,7 @@ public class EnemigoTroll : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bala"))
         {
+            Debug.Log("34566555555555");
             if (vulnerable == true) { 
                 vidas--;
                 barraVidaEnemigo.value = vidas;

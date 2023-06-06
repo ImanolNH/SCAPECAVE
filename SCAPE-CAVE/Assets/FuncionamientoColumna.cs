@@ -6,6 +6,7 @@ public class FuncionamientoColumna : MonoBehaviour
 {
     public bool[] arrayCristales = new bool[3];
     public EnemigoTroll eT;
+    public bool destruida = false;
 
     private void Start()
     {
@@ -19,10 +20,10 @@ public class FuncionamientoColumna : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Valor 1: " + arrayCristales[0]+"Valor 2: " + arrayCristales[1]+ "Valor 3: " + arrayCristales[2]);
+        // Debug.Log("Valor 1: " + arrayCristales[0]+"Valor 2: " + arrayCristales[1]+ "Valor 3: " + arrayCristales[2]);
         if (comprobarCristales()==3)
         {
-            eT.vulnerable = true;
+            tiempoVulnerable();
         }
         
     }
@@ -38,5 +39,15 @@ public class FuncionamientoColumna : MonoBehaviour
             }
         }
         return total;
+    }
+
+    private IEnumerator tiempoVulnerable()
+    {
+        eT.vulnerable = true;
+        Debug.Log("espera inical");
+        yield return new WaitForSeconds(3);
+        Debug.Log("espera terminada");
+        eT.vulnerable = false;
+        destruida = true;
     }
 }

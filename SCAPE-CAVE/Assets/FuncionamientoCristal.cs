@@ -6,10 +6,10 @@ public class FuncionamientoCristal : MonoBehaviour
 {
     public int numeroCristal = 0;
     private FuncionamientoColumna fC;
+    public GameObject columna;
 
     private void Start()
     {
-        GameObject columna = GameObject.Find("Columna1");
         fC = columna.GetComponent<FuncionamientoColumna>();
     }
 
