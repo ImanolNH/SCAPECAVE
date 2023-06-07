@@ -9004,7 +9004,7 @@ GameObject:
   - component: {fileID: 346474639}
   - component: {fileID: 346474640}
   m_Layer: 0
-  m_Name: Columna3
+  m_Name: Columna2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9043,6 +9043,9 @@ MonoBehaviour:
   arrayCristales: 000000
   eT: {fileID: 0}
   destruida: 0
+  numColumna: 1
+  fc: {fileID: 0}
+  gestorColumnas: {fileID: 1033117892}
 --- !u!1 &350875370
 GameObject:
   m_ObjectHideFlags: 0
@@ -20265,7 +20268,7 @@ GameObject:
   - component: {fileID: 823553477}
   - component: {fileID: 823553478}
   m_Layer: 0
-  m_Name: Columna2
+  m_Name: Columna3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20304,6 +20307,9 @@ MonoBehaviour:
   arrayCristales: 000000
   eT: {fileID: 0}
   destruida: 0
+  numColumna: 2
+  fc: {fileID: 0}
+  gestorColumnas: {fileID: 1033117892}
 --- !u!1 &825786289
 GameObject:
   m_ObjectHideFlags: 0
@@ -26245,11 +26251,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   columna1: {fileID: 2116854276}
-  columna2: {fileID: 823553476}
-  columna3: {fileID: 346474638}
-  c1: {fileID: 2116854278}
-  c2: {fileID: 823553478}
-  c3: {fileID: 346474640}
+  columna2: {fileID: 346474638}
+  columna3: {fileID: 823553476}
+  c1: {fileID: 0}
+  c2: {fileID: 0}
+  c3: {fileID: 0}
+  arrayColumnas: 000000
 --- !u!1 &1042290640
 GameObject:
   m_ObjectHideFlags: 0
@@ -45834,7 +45841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1618108829
 Transform:
   m_ObjectHideFlags: 0
@@ -56342,6 +56349,9 @@ MonoBehaviour:
   arrayCristales: 000000
   eT: {fileID: 0}
   destruida: 0
+  numColumna: 0
+  fc: {fileID: 0}
+  gestorColumnas: {fileID: 1033117892}
 --- !u!1 &2120731004
 GameObject:
   m_ObjectHideFlags: 0

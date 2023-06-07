@@ -119,7 +119,7 @@ public class EnemigoTroll : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bala"))
         {
-            Debug.Log("34566555555555");
+            //Debug.Log("34566555555555");
             if (vulnerable == true) { 
                 vidas--;
                 barraVidaEnemigo.value = vidas;

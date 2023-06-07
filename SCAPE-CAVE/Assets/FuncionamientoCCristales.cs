@@ -14,17 +14,21 @@ public class FuncionamientoCCristales : MonoBehaviour
     public FuncionamientoColumna c2;
     public FuncionamientoColumna c3;
 
+    public bool[] arrayColumnas = new bool[3];
+    
+
     void Start()
     {
+        arrayColumnas[0] = false;
+        arrayColumnas[1] = false;
+        arrayColumnas[2] = false;
+
+        columna2.SetActive(false);
+        columna3.SetActive(false);
+
         c1 = columna1.GetComponent<FuncionamientoColumna>();
-
-
         c2 = columna2.GetComponent<FuncionamientoColumna>();
-        c2.gameObject.SetActive(false);
-
         c3 = columna3.GetComponent<FuncionamientoColumna>();
-        c3.gameObject.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -36,12 +40,12 @@ public class FuncionamientoCCristales : MonoBehaviour
 
     public void validarColumna()
     {
-        if (c1.destruida==true)
+        if(arrayColumnas[0] == true)
         {
-            c2.gameObject.SetActive(true);
-        }if(c2.destruida==false) { 
-            
-            c3.gameObject.SetActive(true);
+            columna2.SetActive(true);
+        }if(arrayColumnas[1]==true) {
+
+            columna3.SetActive(true);
         }
     }
 }

@@ -7,11 +7,17 @@ public class FuncionamientoColumna : MonoBehaviour
     public bool[] arrayCristales = new bool[3];
     public EnemigoTroll eT;
     public bool destruida = false;
+    public int numColumna;
+    public FuncionamientoCCristales fc;
+    public GameObject gestorColumnas;
 
     private void Start()
     {
         GameObject columna = GameObject.Find("troll 1");
         eT = columna.GetComponent<EnemigoTroll>();
+
+
+        fc = gestorColumnas.GetComponent<FuncionamientoCCristales>();
         arrayCristales[0] = false;
         arrayCristales[1] = false;
         arrayCristales[2] = false;
@@ -20,9 +26,13 @@ public class FuncionamientoColumna : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log("Valor 1: " + arrayCristales[0]+"Valor 2: " + arrayCristales[1]+ "Valor 3: " + arrayCristales[2]);
+        Debug.Log(destruida.ToString()+" "+numColumna.ToString());
         if (comprobarCristales()==3)
-        {
+        { 
+            //hace falta un boolean para que solo se meta una vez
+
+            fc.arrayColumnas[numColumna]=true;
+            eT.vulnerable = true;
             tiempoVulnerable();
         }
         
