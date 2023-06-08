@@ -27,12 +27,13 @@ public class FuncionamientoColumna : MonoBehaviour
     void Update()
     {
         Debug.Log(destruida.ToString()+" "+numColumna.ToString());
-        if (comprobarCristales()==3)
-        { 
+        if (comprobarCristales()==3 && destruida==false)
+        {
+            Debug.Log("Columna"+ numColumna.ToString());
             //hace falta un boolean para que solo se meta una vez
 
             fc.arrayColumnas[numColumna]=true;
-            eT.vulnerable = true;
+            //eT.vulnerable = true;
             tiempoVulnerable();
         }
         
@@ -55,7 +56,7 @@ public class FuncionamientoColumna : MonoBehaviour
     {
         eT.vulnerable = true;
         Debug.Log("espera inical");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3f);
         Debug.Log("espera terminada");
         eT.vulnerable = false;
         destruida = true;
