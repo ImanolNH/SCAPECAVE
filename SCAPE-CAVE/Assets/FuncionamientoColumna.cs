@@ -26,15 +26,15 @@ public class FuncionamientoColumna : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(destruida.ToString()+" "+numColumna.ToString());
+        //Debug.Log(destruida.ToString()+" "+numColumna.ToString());
         if (comprobarCristales()==3 && destruida==false)
         {
-            Debug.Log("Columna"+ numColumna.ToString());
+            //Debug.Log("Columna"+ numColumna.ToString());
             //hace falta un boolean para que solo se meta una vez
 
             fc.arrayColumnas[numColumna]=true;
-            //eT.vulnerable = true;
-            tiempoVulnerable();
+            eT.vulnerable = true;
+            StartCoroutine(tiempoVulnerable());
         }
         
     }
@@ -52,11 +52,11 @@ public class FuncionamientoColumna : MonoBehaviour
         return total;
     }
 
-    private IEnumerator tiempoVulnerable()
+    public IEnumerator tiempoVulnerable()
     {
-        eT.vulnerable = true;
+        //eT.vulnerable = true;
         Debug.Log("espera inical");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(10f);
         Debug.Log("espera terminada");
         eT.vulnerable = false;
         destruida = true;

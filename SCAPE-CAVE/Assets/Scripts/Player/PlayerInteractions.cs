@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerInteractions : MonoBehaviour
@@ -28,6 +29,10 @@ public class PlayerInteractions : MonoBehaviour
             if(GameManager.Instance.vidas == 0)
             {
                 GameManager.Instance.sinVidas = true;
+
+                SceneManager.LoadScene("MenuFinal");
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 //Destroy(gameObject);
             }
 
