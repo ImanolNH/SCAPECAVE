@@ -60,7 +60,7 @@ public class RecogerMunicionEspecial : MonoBehaviour
                     municion.text = ammo;
                     textoCargador = cargador.ToString();
                     cargadorT.text = textoCargador;
-
+                    GameManager.Instance.cristalesRecogidos++;
                     Destroy(gameObject);
                 }
             }

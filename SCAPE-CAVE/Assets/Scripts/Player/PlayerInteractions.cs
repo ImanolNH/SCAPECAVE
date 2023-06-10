@@ -10,6 +10,18 @@ public class PlayerInteractions : MonoBehaviour
     public int vidas;
 
     public int numero;
+
+    public puertaEsqueletos pE;
+    public puertaEsqueletos pE2;
+
+    void Start()
+    {
+        GameObject puertaSuperior = GameObject.Find("PuertaSup");
+        pE = puertaSuperior.GetComponent<puertaEsqueletos>();
+        GameObject puertaInferior = GameObject.Find("PuertaInf");
+        pE2 = puertaInferior.GetComponent<puertaEsqueletos>();
+    }
+
     private void OnTriggerEnter(Collider other) {
         
         /*if(other.gameObject.CompareTag("GunAmmo"))
@@ -37,6 +49,13 @@ public class PlayerInteractions : MonoBehaviour
             }
 
             Debug.Log("daño" + numero.ToString() + " vidas " + GameManager.Instance.vidas.ToString() + "sin vidas:" + GameManager.Instance.sinVidas.ToString());
+
+        }else if (other.CompareTag("puerta"))
+        {
+            pE.entrado = true;
+            pE2.entrado = true;
+            Debug.Log("puerta cerrando");
+
 
         }
     }

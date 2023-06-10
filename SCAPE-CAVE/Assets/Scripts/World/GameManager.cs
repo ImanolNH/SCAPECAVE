@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public bool sinVidas = false;
 
     public int enemigosEliminados = 0;
+
+    public int cristalesRecogidos = 0;
      
 
     /*public TMP_Text municionTexto;
