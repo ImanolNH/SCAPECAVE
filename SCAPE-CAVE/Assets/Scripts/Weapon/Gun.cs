@@ -22,7 +22,6 @@ public class Gun : MonoBehaviour
 
     public TMP_Text mensaje;
     private bool mensajeMostrado = false;
-    //public estadisticas municion;
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -30,23 +29,14 @@ public class Gun : MonoBehaviour
             if (GameManager.Instance.gunReload == false) { 
                 if (GameManager.Instance.gunAmmo == 0 && GameManager.Instance.ammoCargador == 0)
                 {
-
-                    //if (!mensajeMostrado)
-                    //{
                         mensaje.text = "No hay munición";
                         StartCoroutine(EsperarYEliminarMensaje(2f));
-                        //mensajeMostrado = true;
-                    //}
 
                 }
                 else if (GameManager.Instance.gunAmmo == 0 && GameManager.Instance.ammoCargador > 0)
                 {
-                    //if (!mensajeMostrado)
-                    //{
                         mensaje.text = "Debes recargar munición";
                         StartCoroutine(EsperarYEliminarMensaje(2f));
-                        //mensajeMostrado = true;
-                    //}
                 }
                 else
                 {
@@ -85,8 +75,6 @@ public class Gun : MonoBehaviour
     {
         yield return new WaitForSeconds(tiempo);
         mensaje.text = "";
-        //Debug.Log("polllllaaaa");
-        //mensajeMostrado = false;
     }
 
 }

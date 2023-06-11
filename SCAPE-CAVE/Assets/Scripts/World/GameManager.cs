@@ -26,17 +26,8 @@ public class GameManager : MonoBehaviour
     public int cristalesRecogidos = 0;
      
 
-    /*public TMP_Text municionTexto;
-    public estadisticas municion;*/
-
     private void Awake(){
-        
         Instance=this;
     }
-
-    /*public void Coleccionar()
-    {
-        municionTexto.text = GameManager.Instance.gunAmmo.ToString();
-    }*/
 
 }

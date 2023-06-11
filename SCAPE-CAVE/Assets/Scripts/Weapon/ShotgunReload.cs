@@ -25,7 +25,6 @@ public class ShotgunReload : MonoBehaviour
         if (isReloading)
             return;
 
-        // Si se presiona el boton de recarga y no se está recargando
         if (Input.GetButtonDown("Reload"))
         {
             Debug.Log("Recargando " + numero.ToString());
@@ -44,24 +43,16 @@ public class ShotgunReload : MonoBehaviour
 
         mainAmmo = GameManager.Instance.shotgunAmmo;
         ammoCargador = GameManager.Instance.shotgunAmmoCargador;
-        // Esperar por el tiempo de recarga
         yield return new WaitForSeconds(reloadTime);
         cargando.gameObject.SetActive(false);
         mira.gameObject.SetActive(true);
-        // Calcular cuantas balas se pueden recargar
         int bulletsToReload = Mathf.Min(maxClipAmmo - mainAmmo, ammoCargador);
-
-        // Restar las balas recargadas de la municion principal
         GameManager.Instance.shotgunAmmoCargador -= bulletsToReload;
-
-        // Sumar las balas recargadas al cargador
         GameManager.Instance.shotgunAmmo += bulletsToReload;
-
         string Tammo = GameManager.Instance.shotgunAmmo.ToString();
         string Tcargador = GameManager.Instance.shotgunAmmoCargador.ToString();
         municion.text = Tammo;
         cargador.text = Tcargador;
-
         GameManager.Instance.shotgunReload = false;
         isReloading = false;
     }
