@@ -46,6 +46,7 @@ public class ShotgunReload : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         cargando.gameObject.SetActive(false);
         mira.gameObject.SetActive(true);
+
         int bulletsToReload = Mathf.Min(maxClipAmmo - mainAmmo, ammoCargador);
         GameManager.Instance.shotgunAmmoCargador -= bulletsToReload;
         GameManager.Instance.shotgunAmmo += bulletsToReload;
