@@ -16,9 +16,9 @@ public class PlayerInteractions : MonoBehaviour
 
     void Start()
     {
-        GameObject puertaSuperior = GameObject.Find("PuertaSup");
+        GameObject puertaSuperior = GameObject.Find("PuertaSupE");
         pE = puertaSuperior.GetComponent<puertaEsqueletos>();
-        GameObject puertaInferior = GameObject.Find("PuertaInf");
+        GameObject puertaInferior = GameObject.Find("PuertaInfE");
         pE2 = puertaInferior.GetComponent<puertaEsqueletos>();
     }
 
