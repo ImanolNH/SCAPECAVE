@@ -76,7 +76,7 @@ public class EnemigoEsqueleto : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando && GameManager.Instance.sinVidas == false)
                 {
-                    Debug.Log(GameManager.Instance.sinVidas.ToString());
+                    //Debug.Log(GameManager.Instance.sinVidas.ToString());
                     var lookPos = target.transform.position - transform.position;
                     lookPos.y = 0;
                     var rotation = Quaternion.LookRotation(lookPos);
@@ -134,7 +134,7 @@ public class EnemigoEsqueleto : MonoBehaviour
 
                 newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
                 GameManager.Instance.enemigosEliminados += 1;
-                Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
+                //Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
                 Destroy(gameObject, 2);
             }
 
@@ -156,7 +156,7 @@ public class EnemigoEsqueleto : MonoBehaviour
 
                 newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
                 GameManager.Instance.enemigosEliminados+=1;
-                Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
+                //Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
                 Destroy(gameObject, 2);
             }
         }

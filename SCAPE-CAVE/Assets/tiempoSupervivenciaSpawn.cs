@@ -10,8 +10,17 @@ public class tiempoSupervivenciaSpawn : MonoBehaviour
 
     private float currentTime;
 
+    public GameObject spawnsEsqueletos;
+
+    public puertaEsqueletos pE;
+    public puertaEsqueletos pE2;
+
     private void Start()
     {
+        GameObject puertaSuperior = GameObject.Find("PuertaSupE");
+        pE = puertaSuperior.GetComponent<puertaEsqueletos>();
+        GameObject puertaInferior = GameObject.Find("PuertaInfE");
+        pE2 = puertaInferior.GetComponent<puertaEsqueletos>();
         currentTime = countdownDuration;
     }
 
@@ -21,6 +30,11 @@ public class tiempoSupervivenciaSpawn : MonoBehaviour
 
         if (currentTime <= 0f)
         {
+            pE.animacionEjecutada = false;
+            pE2.animacionEjecutada = false;
+            pE.saliendo = true;
+            pE2.saliendo = true;
+            spawnsEsqueletos.SetActive(false);
             currentTime = 0f;
             // Aquí puedes agregar cualquier acción adicional que desees realizar cuando se complete el contador
         }

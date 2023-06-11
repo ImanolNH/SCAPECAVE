@@ -22,7 +22,6 @@ public class EnemigoTroll : MonoBehaviour
 
     public GameObject Distancia;
 
-    public GameObject Salida;
     //public AudioSource audioCorrer;
 
     //variables del spawn de munición de enemigos
@@ -30,6 +29,7 @@ public class EnemigoTroll : MonoBehaviour
     public Transform spawnPoint;
 
     public Collider miCollider;
+    //SALIDA
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +44,7 @@ public class EnemigoTroll : MonoBehaviour
     void Update()
     {
         Comportamiento_Enemigo();
-        Debug.Log("vulnerable " + vulnerable);
+        //Debug.Log("vulnerable " + vulnerable);
     }
  
     public void Comportamiento_Enemigo()
@@ -130,11 +130,11 @@ public class EnemigoTroll : MonoBehaviour
                 {
                     vidas--;
                     barraVidaEnemigo.value = vidas;
+                    
                     Debug.Log(vidas.ToString());
 
                     if (vidas <= 0)
                     {
-                        Salida.gameObject.SetActive(false);
                         ani.SetBool("walk", false);
                         ani.SetBool("run", false);
 
@@ -146,8 +146,8 @@ public class EnemigoTroll : MonoBehaviour
 
                         newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
                         GameManager.Instance.enemigosEliminados += 1;
-                        Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
-                        SceneManager.LoadScene("MenuFinal");
+                        //Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
+
                         Destroy(gameObject, 2);
                     }
                 }
@@ -164,7 +164,6 @@ public class EnemigoTroll : MonoBehaviour
                     if (vidas <= 0)
                     {
 
-                        Salida.gameObject.SetActive(false);
                         ani.SetBool("walk", false);
                         ani.SetBool("run", false);
 
@@ -176,10 +175,10 @@ public class EnemigoTroll : MonoBehaviour
 
                         newBullet = Instantiate(specialAmmo, spawnPoint.position, spawnPoint.rotation);
                         GameManager.Instance.enemigosEliminados += 1;
-                        Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
-                        Destroy(gameObject, 2);
+                        //Debug.Log("Eenemigos Eliminados" + GameManager.Instance.enemigosEliminados.ToString());
+                        Destroy(gameObject, 2);                 
 
-                        SceneManager.LoadScene("MenuFinal");
+                        //SceneManager.LoadScene("MenuFinal");
                     }
                 }
             }

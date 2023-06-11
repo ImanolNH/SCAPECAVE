@@ -7,9 +7,18 @@ public class AnimationController : MonoBehaviour
 {
     public Animation animacion;
     bool animacionEjecutada=false;
+
+    public RequisitosTroll rT;
+
+    void Start()
+    {
+        GameObject requisitosT = GameObject.Find("RequisitosT");
+        rT = requisitosT.GetComponent<RequisitosTroll>();
+    }
+
     private void Update()
     {
-        if (GameManager.Instance.enemigosEliminados == 3 && animacionEjecutada==false)
+        if (animacionEjecutada==false && rT.pisando==true)
         {
             animacion.Play();
             animacionEjecutada = true;
