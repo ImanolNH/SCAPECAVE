@@ -34,6 +34,7 @@ public class tiempoSupervivenciaSpawn : MonoBehaviour
             pE2.animacionEjecutada = false;
             pE.saliendo = true;
             pE2.saliendo = true;
+            slider.gameObject.SetActive(false);
             spawnsEsqueletos.SetActive(false);
             currentTime = 0f;
             // Aquí puedes agregar cualquier acción adicional que desees realizar cuando se complete el contador

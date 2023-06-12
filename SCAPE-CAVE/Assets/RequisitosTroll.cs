@@ -7,6 +7,7 @@ public class RequisitosTroll : MonoBehaviour
 {
     public TMP_Text instrucciones;
     string instrucc;
+    public string textoVacio;
     public bool pisando = false;
 
 
@@ -35,7 +36,7 @@ public class RequisitosTroll : MonoBehaviour
     private void OnTriggerExit()
     {
         pisando = false;
-        instrucc = "";
-        instrucciones.text = instrucc;
+        textoVacio = "";
+        instrucciones.text = textoVacio;
     }
 }

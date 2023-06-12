@@ -7,6 +7,7 @@ public class requisitosEsqueletos : MonoBehaviour
 {
     public TMP_Text instrucciones;
     public string instrucc;
+    public string textoVacio;
     public bool pisando=false;
 
 
@@ -34,7 +35,7 @@ public class requisitosEsqueletos : MonoBehaviour
     private void OnTriggerExit()
     {
         pisando = false;
-        instrucc = "";
-        instrucciones.text = instrucc;
+        textoVacio = "";
+        instrucciones.text = textoVacio;
     }
 }

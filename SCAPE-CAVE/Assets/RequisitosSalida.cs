@@ -3,33 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class mensajesEnPantalla : MonoBehaviour
+public class RequisitosSalida : MonoBehaviour
 {
     public TMP_Text instrucciones;
     public string instrucc;
     public string textoVacio;
     public PlayerMovement pm;
+    public EnemigoTroll eT;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        GameObject jugador = GameObject.Find("Player");
-        pm = jugador.GetComponent<PlayerMovement>();
+        GameObject eTr = GameObject.Find("troll 1");
+        eT = eTr.GetComponent<EnemigoTroll>();
+
     }
 
+    // Update is called once per frame
     private void OnTriggerStay(Collider other)
     {
-
+        
         if (other.gameObject.CompareTag("Player"))
         {
-            pm.speed = 1.5f;
-            instrucciones.text = instrucc;
+            if (eT.vidas> 0){
+                
+                instrucc = "Necesitas matar al Jefe de la cueva para poder escapar";
+                instrucciones.text = instrucc;
+            }
 
         }
+        
     }
     private void OnTriggerExit()
     {
-        pm.speed = 5f;
         textoVacio = "";
         instrucciones.text = textoVacio;
     }

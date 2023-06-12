@@ -20,7 +20,7 @@ public class CondicionSalida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (eT.vidas == 0)
+        if (eT.vidas <= 0)
         {
             salida.SetActive(true);
             roca.SetActive(false);
