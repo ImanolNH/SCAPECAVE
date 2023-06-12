@@ -9,28 +9,32 @@ public class RequisitosTroll : MonoBehaviour
     string instrucc;
     public string textoVacio;
     public bool pisando = false;
+    public EnemigoTroll eT;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject eTr = GameObject.Find("troll 1");
+        eT = eTr.GetComponent<EnemigoTroll>();
     }
 
     private void OnTriggerStay(Collider other)
     {
-
-        if (other.gameObject.CompareTag("Player") && GameManager.Instance.enemigosEliminados >= 6)
+        if (eT.vidas > 0)
         {
-            pisando = true;
+            if (other.gameObject.CompareTag("Player") && GameManager.Instance.enemigosEliminados >= 6)
+            {
+                pisando = true;
 
-        }
-        else if (other.gameObject.CompareTag("Player") && GameManager.Instance.enemigosEliminados < 6)
-        {
+            }
+            else if (other.gameObject.CompareTag("Player") && GameManager.Instance.enemigosEliminados < 6)
+            {
 
-            instrucc = "Necesitas eliminar al menos a 6 enemigos para acceder";
-            instrucciones.text = instrucc;
+                instrucc = "Necesitas eliminar al menos a 6 enemigos para acceder";
+                instrucciones.text = instrucc;
 
+            }
         }
     }
     private void OnTriggerExit()
