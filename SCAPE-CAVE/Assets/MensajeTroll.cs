@@ -9,28 +9,35 @@ public class MensajeTroll : MonoBehaviour
     public string instrucc;
     public string textoVacio;
     public PlayerMovement pm;
+    public EnemigoTroll eT;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        GameObject jugador = GameObject.Find("Player");
-        pm = jugador.GetComponent<PlayerMovement>();
+        GameObject eTr = GameObject.Find("troll 1");
+        eT = eTr.GetComponent<EnemigoTroll>();
+
     }
 
+    // Update is called once per frame
     private void OnTriggerStay(Collider other)
     {
 
         if (other.gameObject.CompareTag("Player"))
         {
-            pm.speed = 1.5f;
-            instrucciones.text = instrucc;
+            if (eT.vidas > 0)
+            {
+
+                instrucc = "Si destruyes los cristales de una columna el Troll será vulnerable durante unos segundos, a por él.";
+                instrucciones.text = instrucc;
+            }
 
         }
+
     }
     private void OnTriggerExit()
     {
-        pm.speed = 5f;
-        instrucc = "";
-        instrucciones.text = instrucc;
+        textoVacio = "";
+        instrucciones.text = textoVacio;
     }
 }
