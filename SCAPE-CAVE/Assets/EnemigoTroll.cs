@@ -139,7 +139,7 @@ public class EnemigoTroll : MonoBehaviour
                         ani.SetBool("run", false);
 
                         ani.SetBool("attack", false);
-                        ani.SetTrigger("Death");
+                        ani.SetTrigger("death");
                         muerto = true;
                         //creaci�n de la munici�n especial
                         GameObject newBullet;
@@ -168,7 +168,7 @@ public class EnemigoTroll : MonoBehaviour
                         ani.SetBool("run", false);
 
                         ani.SetBool("attack", false);
-                        ani.SetTrigger("Death");
+                        ani.SetTrigger("death");
                         muerto = true;
                         //creaci�n de la munici�n especial
                         GameObject newBullet;

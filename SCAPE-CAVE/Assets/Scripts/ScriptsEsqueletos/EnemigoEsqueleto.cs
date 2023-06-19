@@ -83,7 +83,7 @@ public class EnemigoEsqueleto : MonoBehaviour
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 2);
                     ani.SetBool("walk", false);
                     ani.SetBool("run", true);
-                    transform.Translate(Vector3.forward * 3 * Time.deltaTime);
+                    transform.Translate(Vector3.forward * 5 * Time.deltaTime);
                     if (!audioCorrer.isPlaying)
                     {
                         audioCorrer.Play();

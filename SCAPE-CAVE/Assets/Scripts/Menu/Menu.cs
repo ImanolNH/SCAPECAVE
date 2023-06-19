@@ -17,6 +17,8 @@ public class Menu : MonoBehaviour
     public TMP_Text shotgunAmmo;
     public TMP_Text cargadorShotgunAmmo;
 
+    public GameObject contador;
+
     void Start()
     {
         Cursor.visible = false;
@@ -41,6 +43,7 @@ public class Menu : MonoBehaviour
     {
         Cursor.visible = false;
         MenuPausa.SetActive(false);
+        contador.SetActive(true);
         Time.timeScale = 1f;
         JuegoPausado = false;
         Debug.Log("Reanudando juego...");
@@ -50,6 +53,7 @@ public class Menu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        contador.SetActive(false);
         MenuPausa.SetActive(true);
         vidas.text=GameManager.Instance.vidas.ToString();
         gunAmmo.text=GameManager.Instance.gunAmmo.ToString();
